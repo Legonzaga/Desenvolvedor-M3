@@ -1,0 +1,408 @@
+/** version: 1.0 */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: solid 0px red;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+p {
+  vertical-align: middle;
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 32pt;
+  font-weight: normal;
+}
+
+h3 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 16pt;
+  font-weight: normal;
+}
+
+a:link {
+    color:#666666;
+    font-size:10pt;
+}
+
+a:hover {
+    color:#00c0ee;
+    font-size:10pt;
+}
+
+a:visited {
+    color:#666666;
+    font-size:10pt;
+}
+
+
+#cabecalho {
+  border-bottom: solid 2px #c7c7c7;
+}
+
+#menu {
+  margin: 0 auto;
+  width: 1140px;
+  height: 64px;
+}
+
+#logo {
+  position: relative;
+  top: 18px;
+  left: 135px;
+  float: left;
+  width: 832px;
+  height: 64px;
+  background-image: url("../assets/logo-m3.png");
+  background-repeat: no-repeat;
+  cursor:pointer;
+}
+
+#bagIcon {    
+  position: relative;
+  top: 20px;
+  left: 135px;
+  float: left;
+  width: 21px;
+  height: 21px;
+  background-image: url("../assets/bag.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+#itensNaBolsa {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #fff;
+  background-color: #00c0ee;
+  border-radius: 50px;
+  text-align: center;
+}
+
+/** PRODUTOS */
+.produto {
+  width: 195px;
+  height: 430px;
+  margin: 14px;
+  margin-bottom: 40px;
+  float: left;
+}
+
+.foto {
+  width: 195px;
+  height: 295px;
+  float: left;
+}
+
+.nomeProduto {
+  position: relative;
+  top: 8px;
+  float: left;
+  font-size: 11pt;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+  width: 195px;
+  height: 36px;
+}
+
+.preco {
+  float: left;
+  font-size: 16pt;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: -1px;
+  width: 195px;
+  height: 36px;
+}
+
+.parcelamento {
+  float: left;
+  font-size: 12pt;
+  text-align: center;
+  letter-spacing: 0px;
+  width: 195px;
+  height: 36px;
+  font-family: "Open Sans";
+}
+
+.btnComprar {
+  width: 195px;
+  height: 42px;
+  background-color: #000000;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  display: table-cell;
+  cursor: pointer;
+}
+
+.btnComprar:hover {
+  background-color: #00c0ee;
+}
+
+#cores {
+  font-weight: 600;
+}
+
+#faixaDePreco {
+  font-weight: 400;
+}
+
+#selectOrdenacao {
+  text-align: right;
+  margin-top: 40px;
+}
+
+#listaTamanho {
+  display: inline-block;
+  float: none;
+  width: 100%;
+}
+
+.itemTamanho {
+  position: relative;
+  text-align: center;
+  float: left;
+  border: solid 1px #c7c7c7;
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+
+  cursor: pointer;
+}
+
+.itemTamanho :hover {
+  top: 0px;
+  width: 32px;
+  height: 32px;
+  border: solid 1px #00c0ee;
+}
+
+.itemTamanho > div {
+  position: relative;
+  top: 5px;
+}
+
+#divBtnCarregarMais {
+  float: left;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+#btnCarregarMais {
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #00c0ee;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+/** Desktop */
+@media (min-width: 640px) {
+  #sessao {
+    margin: 0 auto;
+    width: 1140px;
+    height: auto;
+  }
+
+  #conteudo {
+    height: auto;
+    display: inline-block;
+    margin-left: 135px;
+  }
+
+  #sidebar {
+    left: 135px;
+    float: left;
+    width: 195px;
+    height: 350px;
+  }
+
+  #vitrine {
+    float: left;
+    width: 675px;
+    height: auto;
+  }
+} /** EOF min-width 640px - Desktop*/
+
+/** Mobile */
+@media (max-width: 640px) {
+  #sessao {
+    margin: 0 auto;
+    width: 640px;
+    height: auto;
+  }
+
+  #conteudo {
+    margin: 0 auto;
+    width: 640px;
+    height: auto;
+  }
+
+  #logo {
+    position: relative;
+    top: 24px;
+    left: 24px;
+    width: 135px;
+    height: 82px;
+
+    vertical-align: middle;
+  }
+
+  #bagIcon {
+    position: relative;
+    top: 20px;
+    left: 100px;
+    float: left;
+    width: 41px;
+    height: 41px;
+    background-image: url("../assets/bag.png");
+    background-repeat: no-repeat;
+  }
+
+  #sidebar {
+    position: relative;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+  }
+
+  #vitrine {
+    max-width: 640px;
+    height: 350px;
+  }
+
+  .produto {
+    max-width: 266px;
+    height: 585px;
+    margin: 5px;
+    float: left;
+  }
+} /** EOF max-width 640px - Mobile */
+
+#rodape {
+  float: left;
+  vertical-align: middle;
+  width: 100%;
+  height: 35px;
+  background-color: #000000;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Criando o Checkbox */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 11pt;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* esconde o checbox padrão */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Cria um novo Checkbox */
+.checkmark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+  border: solid 1px #7f7f7f;
+}
+
+/* On mouse-over, adiciona um background cinza */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+  border: solid 1px #7f7f7f;
+}
+
+/* Quando o checkbox está marcado, adiciona um bg azul */
+.container input:checked ~ .checkmark {
+  border: solid 1px #7f7f7f;
+}
+
+/* Cria o checkmar/indicator (esconde quando não está marcado*/
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Mostra o checkmar quando selecionado */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Estiliza o checkmark/indicator */
+.container .checkmark:after {
+  left: 1px;
+  top: 1px;
+  width: 13px;
+  height: 13px;
+  background-color: #00c0ee;
+  border-width: 1 3px 3px 0;
+}
+
+/** Cria o estilo do select */
+select {
+  appearance: none;
+  background-color: transparent;
+  padding: 5px;
+  margin: 0;
+  width: 155px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  line-height: inherit;
+}
+
+select:hover,
+select:focus,
+select:active,
+select:focus {
+  transition: 1s;
+  color: inherit;
+  font-weight: bold;
+}
+
+select option :hover {
+  color: red;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
