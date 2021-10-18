@@ -79,13 +79,13 @@ a:visited {
 
 #itensNaBolsa {
   position: relative;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
   font-size: 0.8em;
   font-weight: 600;
   color: #fff;
   background-color: #00c0ee;
-  border-radius: 50px;
+  border-radius: 100px;
   text-align: center;
 }
 
@@ -176,9 +176,37 @@ a:visited {
 
 .itemTamanho {
   position: relative;
+  top: 5px;
   text-align: center;
   float: left;
+  color:#c7c7c7;
   border: solid 1px #c7c7c7;
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  font-size:12pt;
+  cursor: pointer;
+}
+
+.itemTamanho :hover {
+  top: 0px;
+  width: 32px;
+  height: 32px;  
+  border: solid 1px #00c0ee;  
+}
+
+.itemTamanho > div {
+  position: relative;
+  top: 5px;
+}
+
+.itemTamanhoSelecionado {
+  position: relative;
+  top: 5px;
+  text-align: center;
+  float: left;  
+  color:#000000;
+  border: solid 1px #00c0ee;  
   width: 32px;
   height: 32px;
   margin: 4px;
@@ -186,14 +214,7 @@ a:visited {
   cursor: pointer;
 }
 
-.itemTamanho :hover {
-  top: 0px;
-  width: 32px;
-  height: 32px;
-  border: solid 1px #00c0ee;
-}
-
-.itemTamanho > div {
+.itemTamanhoSelecionado > div {
   position: relative;
   top: 5px;
 }
@@ -222,7 +243,7 @@ a:visited {
   #sessao {
     margin: 0 auto;
     width: 1140px;
-    height: auto;
+    min-height: 100vh;
   }
 
   #conteudo {
@@ -241,7 +262,7 @@ a:visited {
   #vitrine {
     float: left;
     width: 675px;
-    height: auto;
+    min-height: auto;
   }
 } /** EOF min-width 640px - Desktop*/
 
@@ -301,8 +322,7 @@ a:visited {
 } /** EOF max-width 640px - Mobile */
 
 #rodape {
-  float: left;
-  vertical-align: middle;
+  float: left;  
   width: 100%;
   height: 35px;
   background-color: #000000;

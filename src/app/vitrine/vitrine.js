@@ -1,6 +1,8 @@
 import Produto from "../models/produto.js";
 import SacolaController from "../sacola/sacola.js";
-
+import ProdutoController from "../produto/produto.js";
+import CoresController from "../atributos/cores.js";
+import TamanhoController from "../atributos/tamanho.js";
 export default class VitrineController {
   listaProdutos = [];
   produto;
@@ -19,23 +21,8 @@ export default class VitrineController {
     `;
   }
 
-  // Retorna uma lista de tamanhos UNICOS dinamicamente presente no array
-  filtroPorTamanho(listaProdutos) {
-    let lista = listaProdutos;
-
-    let arrayTamanho = [];
-
-    for (const i of lista) {
-      arrayTamanho.push(i.tamanho);
-    }
-
-    let retorno = [...new Set(arrayTamanho)];
-    console.log(retorno);
-  }
-
   // Carrega a lista de produtos
-  exibirProdutos(listaProdutos) {
-    console.log(listaProdutos);
+  exibirProdutos(listaProdutos) {   
 
     let lista = `    
         <div id="selectOrdenacao" class="select">
@@ -68,7 +55,39 @@ export default class VitrineController {
 
     this.vitrine.innerHTML = item;
   }
+  
+  /**
+   * 
+   */
+  exibirFiltroProdutos(){
+
+    let coresCtrl = new CoresController();
+    let produtoCtrl = new ProdutoController();
+
+    let produtos = produtoCtrl.filtrarProdutos(coresCtrl.coresSelecionadas, [], []);
+
+    this.exibirProdutos(produtos);
+
+  }
+
+
+  // Retorna uma lista de tamanhos UNICOS dinamicamente presente no array
+  filtroPorTamanho(listaProdutos) {
+    let lista = listaProdutos;
+
+    let arrayTamanho = [];
+
+    for (const i of lista) {
+      arrayTamanho.push(i.tamanho);
+    }
+
+    let retorno = [...new Set(arrayTamanho)];
+    console.log(retorno);
+  }
 } //EOC
+
+/** ########################################################################### */
+
 
 
 const sacola = new SacolaController();
@@ -82,3 +101,25 @@ export function adicionarProduto(produto) {
 
   var bag = document.getElementById('itensNaBolsa').innerHTML = sacola.itensNaSacola.length;
 }
+
+
+
+/** Carrega a vitrine recebendo como parâmetro
+ *  um array de produtos 
+ */
+ const vitrineCtrl = new VitrineController();
+
+export function carregarVitrine(produtos) {
+
+  vitrineCtrl.exibirProdutos(produtos);
+
+}
+
+export function exibirFiltroProdutos(){
+  vitrineCtrl.exibirFiltroProdutos();
+}
+
+// Tornando o acesso niversal
+window.carregarVitrine = carregarVitrine;
+window.exibirFiltroProdutos = exibirFiltroProdutos;
+window.adicionarProduto = adicionarProduto;

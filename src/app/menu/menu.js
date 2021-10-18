@@ -1,11 +1,12 @@
+/**
+ * Classe responsável pela criação do menu
+ */
 export default class MenuController {    
 
     
     constructor(){
         
         this.menu = document.getElementById("menu");
-
-        console.log('Menu');
 
         this.menu.innerHTML = `            
             <div id="logo"></div>
@@ -15,10 +16,4 @@ export default class MenuController {
         `;
     }
     
-    listar(){
-        console.log('Menu funcionando.');
-        document.getElementById('conteudo').innerHTML = 'Lean';
-    }
-
-
 }
