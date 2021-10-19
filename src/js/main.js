@@ -1,8 +1,8 @@
 
-import MenuController from '../app/menu/menu.js';
-import SidebarController from '../app/sidebar/sidebar.js';
-import VitrineController from '../app/vitrine/vitrine.js';
-import RodapeController from '../app/rodape/rodape.js';
+import MenuController from '../app/menuComponent/menu.js';
+import SidebarController from '../app/sidebarComponent/sidebar.js';
+import VitrineController from '../app/vitrineComponent/vitrine.js';
+import RodapeController from '../app/rodapeComponent/rodape.js';
 
 let menu = new MenuController();
 let sidebar = new SidebarController();

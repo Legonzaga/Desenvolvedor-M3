@@ -28,29 +28,34 @@ h3 {
 }
 
 a:link {
-    color:#666666;
-    font-size:10pt;
+  color: #666666;
+  font-size: 10pt;
 }
 
 a:hover {
-    color:#00c0ee;
-    font-size:10pt;
+  color: #00c0ee;
+  font-size: 10pt;
 }
 
 a:visited {
-    color:#666666;
-    font-size:10pt;
+  color: #666666;
+  font-size: 10pt;
 }
 
-
 #cabecalho {
+  width:100%;
+  z-index:10;
+  position: fixed;
+  top:0px;  
   border-bottom: solid 2px #c7c7c7;
+  background-color: #ffffff;
 }
 
 #menu {
   margin: 0 auto;
   width: 1140px;
   height: 64px;
+  background-color: #ffffff;
 }
 
 #logo {
@@ -62,10 +67,10 @@ a:visited {
   height: 64px;
   background-image: url("../assets/logo-m3.png");
   background-repeat: no-repeat;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-#bagIcon {    
+#bagIcon {
   position: relative;
   top: 20px;
   left: 135px;
@@ -96,6 +101,8 @@ a:visited {
   margin: 14px;
   margin-bottom: 40px;
   float: left;
+  animation-name: produtoKeyFrame;
+  animation-duration: 2s;    
 }
 
 .foto {
@@ -164,6 +171,7 @@ a:visited {
 }
 
 #selectOrdenacao {
+  width: 100%;
   text-align: right;
   margin-top: 40px;
 }
@@ -179,20 +187,20 @@ a:visited {
   top: 5px;
   text-align: center;
   float: left;
-  color:#c7c7c7;
+  color: #c7c7c7;
   border: solid 1px #c7c7c7;
   width: 32px;
   height: 32px;
   margin: 4px;
-  font-size:12pt;
+  font-size: 12pt;
   cursor: pointer;
 }
 
 .itemTamanho :hover {
   top: 0px;
   width: 32px;
-  height: 32px;  
-  border: solid 1px #00c0ee;  
+  height: 32px;
+  border: solid 1px #00c0ee;
 }
 
 .itemTamanho > div {
@@ -204,9 +212,9 @@ a:visited {
   position: relative;
   top: 5px;
   text-align: center;
-  float: left;  
-  color:#000000;
-  border: solid 1px #00c0ee;  
+  float: left;
+  color: #000000;
+  border: solid 1px #00c0ee;
   width: 32px;
   height: 32px;
   margin: 4px;
@@ -242,6 +250,7 @@ a:visited {
 @media (min-width: 640px) {
   #sessao {
     margin: 0 auto;
+    margin-top: 65px;
     width: 1140px;
     min-height: 100vh;
   }
@@ -250,19 +259,22 @@ a:visited {
     height: auto;
     display: inline-block;
     margin-left: 135px;
+    z-index: 0;
   }
 
   #sidebar {
     left: 135px;
     float: left;
     width: 195px;
-    height: 350px;
+    height: auto;
+    z-index: 0;
   }
 
   #vitrine {
     float: left;
     width: 675px;
     min-height: auto;
+    z-index: 0;
   }
 } /** EOF min-width 640px - Desktop*/
 
@@ -322,7 +334,7 @@ a:visited {
 } /** EOF max-width 640px - Mobile */
 
 #rodape {
-  float: left;  
+  float: left;
   width: 100%;
   height: 35px;
   background-color: #000000;
@@ -425,4 +437,92 @@ select option :hover {
 
 option[value=""][disabled] {
   display: none;
+}
+
+@keyframes mensagemKeyFrame {
+  from {
+    width:0px;
+    height:0px;
+    opacity: 0;
+    font-size: 0em;
+  }
+  to {
+    width: 250px;
+    height: 250px;
+    opacity: 1;
+    font-size: 1.2em;
+  }
+}
+
+@keyframes produtoKeyFrame {
+  from {
+    opacity:0;
+    position:relative;
+    floar:left;
+    top:-50px;
+    left:0px;
+  }
+  to {
+    position:relative;
+    top:0px;
+    left:0px;
+    floar:left;
+    opacity:1;    
+  }
+}
+
+
+#idMensagem {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  display: flex;
+  margin: 0px auto;  
+  background-color: #000;
+  opacity:0.95;
+}
+
+#formaMensagem {
+  width: 280px;
+  height: 280px;
+  display: table;
+  text-align: center;
+  border:solid 1px #000;
+  border-radius: 1000px;
+  color: #000000;
+  background: #fff;
+  animation-name: mensagemKeyFrame;
+  animation-duration: 0.2s;
+}
+
+#idMensagemConteudo {
+  width:250px;
+  text-transform: capitalize;
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+#btnFecharMensagem {
+  color: #fff;
+  margin-top:30px;
+}
+
+#btnFecharMensagem > span {
+  font-size: 0.8em;
+  font-weight: 900;
+  padding:5px;
+  background-color:#000;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+
 }

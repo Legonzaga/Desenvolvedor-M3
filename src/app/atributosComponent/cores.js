@@ -1,6 +1,17 @@
 import Cores from "../models/cores.js";
 import { tamanhoCtrl } from "./tamanho.js";
 import { precoCtrl } from "./precos.js";
+
+
+// Tornando o acesso universal
+window.selecionarCor = selecionarCor;
+window.verTodasCores = verTodasCores;
+window.esconderTodasCores = esconderTodasCores;
+
+
+/**
+ * Classe para o controle da View relacionada Cores do produto
+ */
 export default class CoresController {
   cores;
   contador = 0;
@@ -95,8 +106,3 @@ export function selecionarCor() {
 }
 
 
-
-// Tornando o acesso universal
-window.selecionarCor = selecionarCor;
-window.verTodasCores = verTodasCores;
-window.esconderTodasCores = esconderTodasCores;

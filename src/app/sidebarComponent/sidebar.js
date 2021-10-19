@@ -1,6 +1,6 @@
-import CoresController from "../atributos/cores.js";
-import TamanhoController from "../atributos/tamanho.js";
-import PrecoController from "../atributos/precos.js";
+import CoresController from "../atributosComponent/cores.js";
+import TamanhoController from "../atributosComponent/tamanho.js";
+import PrecoController from "../atributosComponent/precos.js";
 
 export default class SidebarController {
   coresControl;

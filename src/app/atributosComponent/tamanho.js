@@ -1,5 +1,5 @@
 import { coresCtrl } from "./cores.js";
-import { filtrarProdutos } from "../produto/produto.js";
+import { filtrarProdutos } from "../produtoComponent/produto.js";
 import { precoCtrl } from "./precos.js";
 
 export default class TamanhoController {
@@ -65,18 +65,29 @@ export default class TamanhoController {
     console.log(obj);
     console.log(tamanho);
 
-    var obj = document.getElementById(obj);
+    obj = document.getElementById(obj);
 
-    let classes = document.getElementsByClassName("itemTamanhoSelecionado");
+    if(obj.className === 'itemTamanhoSelecionado') {
+        
+        console.log('Mesma classe');
+        obj.className = 'itemTamanho';
 
-    for (var i = 0; i < classes.length; i++) {
-      classes[i].className = 'itemTamanho';
-    }
-    //classes.className = 'itemTamanho';
+        this.tamanhoSelecionado = null;  
 
-    obj.className = "itemTamanhoSelecionado";
+    } else {
 
-    this.tamanhoSelecionado = tamanho;    
+        let classes = document.getElementsByClassName("itemTamanhoSelecionado");
+        for (var i = 0; i < classes.length; i++) {
+            classes[i].className = 'itemTamanho';
+          }
+          //classes.className = 'itemTamanho';
+      
+          obj.className = "itemTamanhoSelecionado";
+      
+          this.tamanhoSelecionado = tamanho;    
+      
+      
+    }    
 
     let produtos = filtrarProdutos(coresCtrl.coresSelecionadas, this.tamanhoSelecionado, precoCtrl.faixaPrecoSelecionada); //Função definida em ProdutosController.js
   }

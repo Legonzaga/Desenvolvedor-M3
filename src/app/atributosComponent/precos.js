@@ -1,6 +1,6 @@
 import { coresCtrl } from "./cores.js";
 import { tamanhoCtrl } from "./tamanho.js";
-import { filtrarProdutos } from "../produto/produto.js";
+import { filtrarProdutos } from "../produtoComponent/produto.js";
 export default class PrecoController {
   faixaPrecoSelecionada = 0; // De 1 -5 para checkbox da Faixa de preço
 
@@ -47,19 +47,28 @@ export default class PrecoController {
   }
 
   selecionarFaixaPreco(selecao) {
-    let faixaDePreco = document.getElementsByName("faixaDePreco");
 
-    //Resetando os checkboxes
-    for (const p of faixaDePreco) {
-      if (p.checked) {
-        p.checked = false;
-        console.log(p);
+    console.log(selecao.checked);
+
+    if(selecao.checked === false){
+      this.faixaPrecoSelecionada = 0;
+    } else {
+
+      let faixaDePreco = document.getElementsByName("faixaDePreco");
+
+      //Resetando os checkboxes
+      for (const p of faixaDePreco) {
+        if (p.checked) {
+          p.checked = false;
+          console.log(p);
+        }
       }
+  
+      selecao.checked = true;
+  
+      this.faixaPrecoSelecionada = selecao.value;
+  
     }
-
-    selecao.checked = true;
-
-    this.faixaPrecoSelecionada = selecao.value;
 
     filtrarProdutos(
       coresCtrl.coresSelecionadas,

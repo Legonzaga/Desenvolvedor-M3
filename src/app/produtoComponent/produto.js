@@ -1,7 +1,8 @@
 import Produto from "../models/produto.js";
-import { coresCtrl } from "../atributos/cores.js";
-import { tamanhoCtrl } from "../atributos/tamanho.js";
-import { precoCtrl } from "../atributos/precos.js";
+import { mensagemCtrl } from "../mensagemComponent/mensagem.js";
+
+// Tornando o acesso universal
+window.filtrarProdutos = filtrarProdutos;
 
 export default class ProdutoController {
   listaDeProdutos = []; // Recebe os produtos cadastrados em Models/Produto.js
@@ -15,9 +16,9 @@ export default class ProdutoController {
     this.produtos = new Produto();
 
     this.listaDeProdutos = this.produtos.listaProdutos;
-    this.exibindoNaVitrine = this.listaDeProdutos;
-    this.coresSelecionadas = coresCtrl.coresSelecionadas;
-    this.tamanhoSelecionado = tamanhoCtrl.tamanhoSelecionado;
+    this.exibindoNaVitrine = this.listaDeProdutos;   
+    
+    
   }
 
   /**
@@ -29,11 +30,6 @@ export default class ProdutoController {
    */
   filtrarProdutos(arrayCores, tamanhoSelecionado, faixaDePreco) {
     this.novaListaProdutos = [];
-
-    console.log(arrayCores);
-    console.log(tamanhoSelecionado);
-    console.log(faixaDePreco);
-    console.log(this.listaDeProdutos);
 
     // Filtro por Cores
     this.novaListaProdutos = this.filtrarCores(
@@ -56,13 +52,19 @@ export default class ProdutoController {
     );
     console.log(this.novaListaProdutos);
 
-    // CAso não encontra produtos com o filtro selecionado
+    // NOT FOUND - Caso não encontra produtos com o filtro selecionado
     if (this.novaListaProdutos.length === 0) {
-      this.novaListaProdutos = this.listaDeProdutos;
-      console.log("Não encontramos nada com essa especificação.");
+      //this.novaListaProdutos = this.listaDeProdutos;           
+      
+      
+      setTimeout(() => {
+        mensagemCtrl.exibirMensagemProdutoAusente("Não foi possível encontrar um item com o filtro de produtos definido." +
+        " Por favor, selecione uma outra, cor, tamanho ou faixa de preço.")
+      }, 500);     
+
     }
 
-    this.exibindoNaVitrine = this.novaListaProdutos;
+    this.exibindoNaVitrine = this.novaListaProdutos;   
 
     carregarVitrine(this.exibindoNaVitrine); // Definida em VitrineController. Método universal.
 
@@ -142,16 +144,16 @@ export default class ProdutoController {
 
 /** ########################################################################## */
 
+
+
+export const produtoCtrl = new ProdutoController();
 /**
  * Funcão universal. Recebe um evento do DOM para filtrar os produtos.
  * @param {*} arrayCores
  * @param {*} arrayTamanhos
  * @param {*} arrayPrecos
  */
-export function filtrarProdutos(arrayCores, tamanhoSelecionado, faixaDePreco) {
-  const produtoCtrl = new ProdutoController();
+export function filtrarProdutos(arrayCores, tamanhoSelecionado, faixaDePreco) {  
   produtoCtrl.filtrarProdutos(arrayCores, tamanhoSelecionado, faixaDePreco);
 }
 
-// Tornando o acesso universal
-window.filtrarProdutos = filtrarProdutos;

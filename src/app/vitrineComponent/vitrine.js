@@ -1,39 +1,43 @@
 import Produto from "../models/produto.js";
-import SacolaController from "../sacola/sacola.js";
-import ProdutoController from "../produto/produto.js";
-import CoresController from "../atributos/cores.js";
-import TamanhoController from "../atributos/tamanho.js";
+import SacolaController from "../sacolaComponent/sacola.js";
+import ProdutoController from "../produtoComponent/produto.js";
+import CoresController from "../atributosComponent/cores.js";
+import { ordenacaoCtrl } from "../atributosComponent/ordenacao.js";
+import produtoCtrl from "../produtoComponent/produto.js";
+
+// Tornando o acesso niversal
+window.carregarVitrine = carregarVitrine;
+window.exibirFiltroProdutos = exibirFiltroProdutos;
+window.adicionarProdutoCarrinho = adicionarProdutoCarrinho;
+
+
 export default class VitrineController {
   listaProdutos = [];
   produto;
   sacola;
   constructor() {
+
     this.vitrine = document.getElementById("vitrine");
 
     this.produto = new Produto();
     this.listaProdutos = this.produto.listaProdutos;
     this.sacola = new SacolaController();
+   
+    produtoCtrl.exibindoNaVitrine = this.listaProdutos;
 
-    this.exibirProdutos(this.listaProdutos);
-    //this.filtroPorTamanho(this.listaProdutos);
+    this.exibirProdutos(produtoCtrl.exibindoNaVitrine);
+    
     this.vitrine.innerHTML += `
         <div id="divBtnCarregarMais"><div id="btnCarregarMais">Carregar Mais</div></div>
     `;
   }
 
   // Carrega a lista de produtos
-  exibirProdutos(listaProdutos) {   
+  exibirProdutos(listaProdutos) {      
 
-    let lista = `    
-        <div id="selectOrdenacao" class="select">
-          <select >
-            <option value="Option 1">Ordenar por:</option>
-            <option class="selectOpt" value="2">Mais recentes</option>
-            <option class="selectOpt" value="3">Menor preço</option>
-            <option class="selectOpt" value="4">Maior preço</option>
-          </select>
-        </div>
-        `;
+    let lista = ``;
+
+    lista += ordenacaoCtrl.exibirSelectOrdenacao();
 
     for (var i = 0; i < listaProdutos.length; i++) {
       lista += `<div class="produto">
@@ -47,13 +51,11 @@ export default class VitrineController {
                 <div class="parcelamento">até ${
                   listaProdutos[i].numeroParcelas
                 }x sem juros</div>
-                <div class="btnComprar" onclick="adicionarProduto(${ listaProdutos[i].id })" id="${listaProdutos[i].id}"><p>Comprar</p></div>
+                <div class="btnComprar" onclick="adicionarProdutoCarrinho(${ listaProdutos[i].id })" id="${listaProdutos[i].id}"><p>Comprar</p></div>
             </div>`;
-    }
+    }    
 
-    const item = lista;
-
-    this.vitrine.innerHTML = item;
+    this.vitrine.innerHTML = lista;
   }
   
   /**
@@ -93,7 +95,7 @@ export default class VitrineController {
 const sacola = new SacolaController();
 
 /// Adiciona um produto à sacola
-export function adicionarProduto(produto) {
+export function adicionarProdutoCarrinho(produto) {
 
   console.log("Clicked " + produto);  
 
@@ -119,7 +121,3 @@ export function exibirFiltroProdutos(){
   vitrineCtrl.exibirFiltroProdutos();
 }
 
-// Tornando o acesso niversal
-window.carregarVitrine = carregarVitrine;
-window.exibirFiltroProdutos = exibirFiltroProdutos;
-window.adicionarProduto = adicionarProduto;
