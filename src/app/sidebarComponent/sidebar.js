@@ -34,8 +34,7 @@ export default class SidebarController {
         </div>
     `;
 
-    let cores = this.coresControl.exibirCores();
-    sidebar += cores;
+    sidebar += this.coresControl.exibirCores();
 
     sidebar += this.tamanhoControl.exibirTamanhos();
 
@@ -45,29 +44,37 @@ export default class SidebarController {
   }
 
   /**
-   * 
+   *
    */
-  exibirFiltrarMobile() {  
-
+  exibirFiltrarMobile() {
     let menuFiltroMobile = `
     <div id='menuFiltroMobile' class="">  
       <div class='flex space-between'>    
-        <div class="" style="padding-left:30px;text-align:left;"><h3>Filtrar</h3></div>
+        <div class="" style="padding-left:30px;text-align:left;"><h3>FILTRAR</h3></div>
         <div class="" style="padding-right:30px;" onclick="fecharFiltroMobile()"><h3>&#x2716;</h3></div>        
       </div>
     </div>`;
-    
 
     document.getElementById("sidebar").innerHTML = menuFiltroMobile;
 
-    coresCtrl.qtdCoresExibir = coresCtrl.cores.listaCores.length;   
-    let cores = coresCtrl.exibirCores();        
+    coresCtrl.qtdCoresExibir = coresCtrl.cores.listaCores.length;
+    let cores = coresCtrl.exibirCores();
+    
+    document
+      .getElementById("menuFiltroMobile")
+      .insertAdjacentHTML("beforeend", cores);
 
-    document.getElementById("menuFiltroMobile").insertAdjacentHTML('beforeend', cores);
     document.getElementById("listaCores").style.display = "flex";
-    
-    tamanhoCtrl
-    
+
+
+    let tamanhos = tamanhoCtrl.exibirTamanhos();
+        
+    document.getElementById("listaCores").insertAdjacentHTML("afterend", tamanhos);
+    document.getElementById("cabecalhoFiltroTamanho").style.display = "flex";
+
+    let preco = this.precoControl.exibirFaixaPreco();
+    document.getElementById("cabecalhoFiltroTamanho").insertAdjacentHTML("afterend", preco);;
+
     //document.getElementById("listaTamanho").style.display = "flex";
     //document.getElementById("faixaDePreco").style.display = "flex";
     //document.getElementById("idSelectOrdenacao").style.display = "flex";

@@ -8,3 +8,8 @@ Install live-server: npm install live-server -g.
 Change directory to where your page lives: cd <path-to-index.html>.
 Start the server: live-server .
 (Should open localhost:8080 in your default browser and show the alert. See below.)
+
+Observações
+* O projeto foi desenvolvimento em HTML e Javscript
+
+* Cada produto foi cadastrado com 3 unidades no estoque.

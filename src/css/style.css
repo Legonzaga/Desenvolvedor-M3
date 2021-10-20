@@ -438,6 +438,10 @@ option[value=""][disabled] {
   text-transform: uppercase;
 }
 
+#cores {
+  visibility: visible;
+}
+
 /** ###########################*/
 /** Itens escondidos no Desktop*/
 /** ###########################*/
@@ -446,13 +450,25 @@ option[value=""][disabled] {
   visibility: hidden;
   display: none;
 }
-#btnMobEsconderCores{
+#btnMobEsconderCores {
   display: none;
   visibility: hidden;
 }
-#cores {
-  visibility: visible;
+
+#btnMobExibirTamanho {
+  display: none;
+  visibility: hidden;
 }
+
+#btnMobEsconderTamanho {
+  display: none;
+  visibility: hidden;
+}
+
+#cabecalhoFiltroTamanho {
+  display: block;
+}
+
 /** ###########################*/
 /** Desktop */
 /** ###########################*/
@@ -540,10 +556,10 @@ option[value=""][disabled] {
     align-self: flex-start;
   }
 
-  .flex-center{
+  .flex-center {
     align-items: center;
   }
-  
+
   .flex-end {
     align-self: flex-end;
   }
@@ -745,34 +761,78 @@ option[value=""][disabled] {
     top: 0px;
     left: 0px;
     width: 100vw;
-    min-height: auto;
+    min-height: 100vh;
     z-index: 20;
-    background-color: #fff;    
-    border-bottom: solid 1px #666;
-  }
-  
-  #menuFiltroMobile > div{
-    border-bottom: solid 1px #c7c7c7;
+    background-color: #fff;
   }
 
-  #btnMobExibirCores{
-    visibility: 'visible';
+  #btnMobExibirCores {
+    visibility: "visible";
   }
-  #btnMobExibirCores > h3{
-    font-weight:900; font-size:2em;
+  #btnMobExibirCores > h3 {
+    font-weight: 900;
+    font-size: 2em;
   }
 
   /** Controle dos botões do Filtro Mobile */
-  #btnMobExibirCores {    
+  #btnMobExibirCores {
     display: flex;
     visibility: visible;
   }
-  #btnMobEsconderCores{
+  #btnMobEsconderCores {
+    visibility: hidden;
+  }
+  #cores {
+    display: none;
+    visibility: hidden;
+  }
+  #btnAlternarExibicaoCores {
+    display: none;
+  }
+
+  /** Filtro por tamnho mobile*/
+  #cabecalhoFiltroTamanho {
+    display: none;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  #cabecalhoFiltroTamanho > h3 {
+    font-weight: 900;
+  }
+
+  #listaTamanho {
+    padding-left: 30px;
+    padding-right: 30px;
+    display: none;
+  }
+
+  #btnMobExibirTamanho {
+    display: flex;
+    visibility: visible;
+    font-size: 2em;
+    font-weight: 900;
+    text-align: right;
+  }
+
+  #btnMobEsconderTamanho {
+    display: none;
     visibility: hidden;
   }
 
-  #cores {
-    visibility: hidden;
+  .btnAdd {
+    font-weight: 900;
+    font-size: 1em;
   }
+
+  .itemTamanho{
+    zoom:1.5;
+  }
+
+  .itemTamanhoSelecionado {
+
+    zoom:1.5;
+  }
+  
 
 } /** EOF max-width 640px - Mobile */

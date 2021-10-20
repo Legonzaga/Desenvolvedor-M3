@@ -2,16 +2,27 @@ import { coresCtrl } from "./cores.js";
 import { filtrarProdutos } from "../produtoComponent/produto.js";
 import { precoCtrl } from "./precos.js";
 
+window.selecionarTamanho = selecionarTamanho;
+
+//Métodos universais Mobile
+window.exibirListaTamanhoMobile = exibirListaTamanhoMobile;
+window.esconderListaTamanhoMobile = esconderListaTamanhoMobile;
 export default class TamanhoController {
   tamanhoSelecionado = null;
 
   constructor() {}
 
   exibirTamanhos() {
-    let listaTamanhos = `            
-            
-        <div><h3>TAMANHOS</h3></div>
+    let listaTamanhos = `                       
+        <div id="cabecalhoFiltroTamanho" class="flex column">
 
+            <div class="flex space-between flex-center" display:inline-flex;>
+                <h3>TAMANHOS</h3>
+                <div id="btnMobExibirTamanho" onclick="exibirListaTamanhoMobile()"><h3 class="btnAdd">&#x2b;</h3></div>
+                <div id="btnMobEsconderTamanho" onclick="esconderListaTamanhoMobile()"><h3>&#9866;</h3></div>
+            </div>
+        
+        
         <div id="listaTamanho">
             <div class="itemTamanho" id="tamP" onclick="selecionarTamanho(this.id, 'P');">
                 <div>P</div>
@@ -55,41 +66,41 @@ export default class TamanhoController {
             </div>
 
         </div>
+
+        </div>
     `;
 
     return listaTamanhos;
   }
 
   selecionarTamanho(obj, tamanho) {
-
     console.log(obj);
     console.log(tamanho);
 
     obj = document.getElementById(obj);
 
-    if(obj.className === 'itemTamanhoSelecionado') {
-        
-        console.log('Mesma classe');
-        obj.className = 'itemTamanho';
+    if (obj.className === "itemTamanhoSelecionado") {
+      console.log("Mesma classe");
+      obj.className = "itemTamanho";
 
-        this.tamanhoSelecionado = null;  
-
+      this.tamanhoSelecionado = null;
     } else {
+      let classes = document.getElementsByClassName("itemTamanhoSelecionado");
+      for (var i = 0; i < classes.length; i++) {
+        classes[i].className = "itemTamanho";
+      }
+      //classes.className = 'itemTamanho';
 
-        let classes = document.getElementsByClassName("itemTamanhoSelecionado");
-        for (var i = 0; i < classes.length; i++) {
-            classes[i].className = 'itemTamanho';
-          }
-          //classes.className = 'itemTamanho';
-      
-          obj.className = "itemTamanhoSelecionado";
-      
-          this.tamanhoSelecionado = tamanho;    
-      
-      
-    }    
+      obj.className = "itemTamanhoSelecionado";
 
-    let produtos = filtrarProdutos(coresCtrl.coresSelecionadas, this.tamanhoSelecionado, precoCtrl.faixaPrecoSelecionada); //Função definida em ProdutosController.js
+      this.tamanhoSelecionado = tamanho;
+    }
+
+    let produtos = filtrarProdutos(
+      coresCtrl.coresSelecionadas,
+      this.tamanhoSelecionado,
+      precoCtrl.faixaPrecoSelecionada
+    ); //Função definida em ProdutosController.js
   }
 } // EOC
 
@@ -99,4 +110,24 @@ export function selecionarTamanho(obj, tamanho) {
   tamanhoCtrl.selecionarTamanho(obj, tamanho);
 }
 
-window.selecionarTamanho = selecionarTamanho;
+export function exibirListaTamanhoMobile() {
+  let btnMobExibirTamanho = document.getElementById("btnMobExibirTamanho");
+  document.getElementById("listaTamanho").style.display = "block";
+
+  btnMobExibirTamanho.style.display = "none";
+
+  let btnMobEsconderTamanho = document.getElementById("btnMobEsconderTamanho");
+  btnMobEsconderTamanho.style.display = "block";
+  btnMobEsconderTamanho.style.visibility = "visible";
+}
+
+export function esconderListaTamanhoMobile() {
+  let btnMobExibirTamanho = document.getElementById("btnMobExibirTamanho");
+  let btnMobEsconderTamanho = document.getElementById("btnMobEsconderTamanho");
+  let listaTamanho = document.getElementById("listaTamanho");
+
+  btnMobEsconderTamanho.style.display = "none";
+  listaTamanho.style.display = "none";
+
+  btnMobExibirTamanho.style.display = "block";
+}
