@@ -27,9 +27,7 @@ export default class VitrineController {
 
     this.exibirProdutos(produtoCtrl.exibindoNaVitrine);
     
-    this.vitrine.innerHTML += `
-        <div id="divBtnCarregarMais"><div id="btnCarregarMais">Carregar Mais</div></div>
-    `;
+
   }
 
   // Carrega a lista de produtos
@@ -56,6 +54,11 @@ export default class VitrineController {
     }    
 
     this.vitrine.innerHTML = lista;
+
+    this.vitrine.innerHTML += `
+        <div id="divBtnCarregarMais"><div id="btnCarregarMais">Carregar Mais</div></div>
+    `;
+
   }
   
   /**

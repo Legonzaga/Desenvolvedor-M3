@@ -13,12 +13,13 @@ export default class Ordenacao {
     let selectOrdenacao = `    
         <div id="selectOrdenacao" class="select">
             <select id="idSelectOrdenacao" onchange="ordenarPorMaiorPreco();">
-                <option value="0">Ordenar por:</option>
+                <option id="ordenacaoOp" value="0">Ordenar por:</option>
                 <option class="selectOpt" value="1">Mais recentes</option>
                 <option class="selectOpt" value="2">Menor preço</option>
                 <option class="selectOpt" value="3" >Maior preço</option>
             </select>
         </div>
+        <span id="ordem"></span>
         `;
     return selectOrdenacao;
   }
@@ -26,10 +27,7 @@ export default class Ordenacao {
   ordenarPorData() {
     produtoCtrl.exibindoNaVitrine = produtoCtrl.exibindoNaVitrine.sort(function compare(a, b) {
       return b.dataCriacao - a.dataCriacao;
-    });
-
-    console.log("Produtos na vitrine");
-    console.log(produtoCtrl.exibindoNaVitrine);
+    });    
 
     carregarVitrine(produtoCtrl.exibindoNaVitrine);
   }
@@ -42,7 +40,6 @@ export default class Ordenacao {
         return 0;
       }
     );
-    console.log(produtoCtrl.exibindoNaVitrine);
     carregarVitrine(produtoCtrl.exibindoNaVitrine);
   }
 

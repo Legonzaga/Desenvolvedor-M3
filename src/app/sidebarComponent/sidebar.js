@@ -1,6 +1,11 @@
+window.exibirFiltrarMobile = exibirFiltrarMobile;
+window.fecharFiltroMobile = fecharFiltroMobile;
+
 import CoresController from "../atributosComponent/cores.js";
 import TamanhoController from "../atributosComponent/tamanho.js";
 import PrecoController from "../atributosComponent/precos.js";
+import { coresCtrl } from "../atributosComponent/cores.js";
+import { tamanhoCtrl } from "../atributosComponent/tamanho.js";
 
 export default class SidebarController {
   coresControl;
@@ -17,9 +22,16 @@ export default class SidebarController {
     this.exibirSidebar();
   }
 
+  // Exibe sidebar desktop
   exibirSidebar() {
     let sidebar = `
-        <div><h1>Blusas</h1></div>
+        <div class="flex-1 center"><h1>Blusas</h1></div>
+        <div id="filtroMobile" class="flex flex-1">
+          <div style="flex:0.3;"></div>
+          <div id="linkFitroMobile" class="flex-1" onclick="exibirFiltrarMobile();">Filtrar</div>
+          <div id="linkOrdenarMobile" class="flex-1">Ordenar</div>
+          <div style="flex:0.3;"></div>
+        </div>
     `;
 
     let cores = this.coresControl.exibirCores();
@@ -31,4 +43,44 @@ export default class SidebarController {
 
     this.conteudo.innerHTML = sidebar;
   }
+
+  /**
+   * 
+   */
+  exibirFiltrarMobile() {  
+
+    let menuFiltroMobile = `
+    <div id='menuFiltroMobile' class="">  
+      <div class='flex space-between'>    
+        <div class="" style="padding-left:30px;text-align:left;"><h3>Filtrar</h3></div>
+        <div class="" style="padding-right:30px;" onclick="fecharFiltroMobile()"><h3>&#x2716;</h3></div>        
+      </div>
+    </div>`;
+    
+
+    document.getElementById("sidebar").innerHTML = menuFiltroMobile;
+
+    coresCtrl.qtdCoresExibir = coresCtrl.cores.listaCores.length;   
+    let cores = coresCtrl.exibirCores();        
+
+    document.getElementById("menuFiltroMobile").insertAdjacentHTML('beforeend', cores);
+    document.getElementById("listaCores").style.display = "flex";
+    
+    tamanhoCtrl
+    
+    //document.getElementById("listaTamanho").style.display = "flex";
+    //document.getElementById("faixaDePreco").style.display = "flex";
+    //document.getElementById("idSelectOrdenacao").style.display = "flex";
+  }
+}
+
+export const sidebarCtrl = new SidebarController();
+
+export function exibirFiltrarMobile() {
+  sidebarCtrl.exibirFiltrarMobile();
+}
+
+export function fecharFiltroMobile() {
+  document.getElementById("menuFiltroMobile").style.display = "none";
+  sidebarCtrl.exibirSidebar();
 }

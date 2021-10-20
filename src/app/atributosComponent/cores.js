@@ -8,7 +8,8 @@ window.selecionarCor = selecionarCor;
 window.verTodasCores = verTodasCores;
 window.esconderTodasCores = esconderTodasCores;
 
-
+window.exibirListaCoresMobile = exibirListaCoresMobile;
+window.esconderListaCoresMobile = esconderListaCoresMobile;
 /**
  * Classe para o controle da View relacionada Cores do produto
  */
@@ -25,16 +26,23 @@ export default class CoresController {
   }
 
   // Construção da view da Lista de Cores na sidebar
-  exibirCores() {
+   exibirCores() {     
     let listaCores = `            
-        <div id="listaCores">            
-        <div><h3>CORES</h3></div>                
-        <fieldset>
+        <div id="listaCores" class="flex column">            
+          <div class="flex space-between flex-center" display:inline-flex;>
+            <h3>CORES</h3>
+            <div id="btnMobExibirCores" onclick="exibirListaCoresMobile()"><h3>&#x2b;</h3></div>
+            <div id="btnMobEsconderCores" onclick="esconderListaCoresMobile()"><h3>&#9866;</h3></div>
+          </div>
         `;
+
+    listaCores += `
+      <div id="cores">
+    `;
 
     for (var i = 0; i < this.qtdCoresExibir; i++) {
       let cor = `    
-            <div id="cores">                
+            <div class="flex center">                
                 <label class="container"> ${this.cores.listaCores[i]}
                 <input name="cor" type="checkbox" onclick="selecionarCor();" value="${this.cores.listaCores[i]}">
                 <span class="checkmark"></span>
@@ -44,6 +52,12 @@ export default class CoresController {
       listaCores += cor;
     }
 
+    listaCores += `
+      </div>
+    `;
+
+
+
     // Condicional Ternário para exbir/esconder lista de cores
     listaCores +=
       this.qtdCoresExibir === this.qtdTotalCores
@@ -51,7 +65,7 @@ export default class CoresController {
         : `<a href="#" style="text-decoration:undeline;" onclick="verTodasCores()">Ver todas as cores</a>`;
 
     listaCores += `
-        </fieldset>
+        
         </div>`;
 
     return listaCores;
@@ -106,3 +120,33 @@ export function selecionarCor() {
 }
 
 
+export function exibirListaCoresMobile(){
+  
+  document.getElementById("btnMobExibirCores").addEventListener('click', function(){
+    
+    this.style.display = 'hidden'; 
+    
+    document.getElementById("btnMobEsconderCores").style.display = 'flex';
+    document.getElementById("btnMobEsconderCores").style.visibility = 'visible';
+
+    document.getElementById("btnMobExibirCores").style.display = 'none';
+
+    document.getElementById("cores").style.visibility = 'visible';    
+    
+  });
+}
+
+export function esconderListaCoresMobile(){
+  
+  document.getElementById("btnMobEsconderCores").addEventListener('click', function(){
+    
+    this.style.display = 'none';    
+    
+    document.getElementById("btnMobExibirCores").style.visibility = 'visible';
+    document.getElementById("btnMobExibirCores").style.display= 'flex';
+
+    document.getElementById("cores").style.visibility = 'hidden';    
+    
+    document.getElementById("cores").style.visibility = 'hidden';    
+  });
+}
