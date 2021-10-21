@@ -16,9 +16,7 @@ export default class ProdutoController {
     this.produtos = new Produto();
 
     this.listaDeProdutos = this.produtos.listaProdutos;
-    this.exibindoNaVitrine = this.listaDeProdutos;   
-    
-    
+    this.exibindoNaVitrine = this.listaDeProdutos;
   }
 
   /**
@@ -54,17 +52,17 @@ export default class ProdutoController {
 
     // NOT FOUND - Caso não encontra produtos com o filtro selecionado
     if (this.novaListaProdutos.length === 0) {
-      //this.novaListaProdutos = this.listaDeProdutos;           
-      
-      
-      setTimeout(() => {
-        mensagemCtrl.exibirMensagemProdutoAusente("Não foi possível encontrar um item com o filtro de produtos definido." +
-        " Por favor, selecione uma outra, cor, tamanho ou faixa de preço.")
-      }, 500);     
+      //this.novaListaProdutos = this.listaDeProdutos;
 
+      setTimeout(() => {
+        mensagemCtrl.exibirMensagemProdutoAusente(
+          "Não foi possível encontrar um item com o filtro de produtos definido." +
+            " Por favor, selecione uma outra, cor, tamanho ou faixa de preço."
+        );
+      }, 500);
     }
 
-    this.exibindoNaVitrine = this.novaListaProdutos;   
+    this.exibindoNaVitrine = this.novaListaProdutos;
 
     carregarVitrine(this.exibindoNaVitrine); // Definida em VitrineController. Método universal.
 
@@ -144,8 +142,6 @@ export default class ProdutoController {
 
 /** ########################################################################## */
 
-
-
 export const produtoCtrl = new ProdutoController();
 /**
  * Funcão universal. Recebe um evento do DOM para filtrar os produtos.
@@ -153,7 +149,6 @@ export const produtoCtrl = new ProdutoController();
  * @param {*} arrayTamanhos
  * @param {*} arrayPrecos
  */
-export function filtrarProdutos(arrayCores, tamanhoSelecionado, faixaDePreco) {  
+export function filtrarProdutos(arrayCores, tamanhoSelecionado, faixaDePreco) {
   produtoCtrl.filtrarProdutos(arrayCores, tamanhoSelecionado, faixaDePreco);
 }
-

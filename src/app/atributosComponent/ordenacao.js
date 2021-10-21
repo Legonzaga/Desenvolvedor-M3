@@ -2,13 +2,20 @@ import { produtoCtrl } from "../produtoComponent/produto.js";
 import { carregarVitrine } from "../vitrineComponent/vitrine.js";
 // Tornando o universal
 window.ordenarPorMaiorPreco = ordenarPorMaiorPreco;
+window.ordenarPorDataMob = ordenarPorDataMob;
+window.ordenarPorMenoPrecoMob = ordenarPorMenoPrecoMob;
+window.ordenarPorMaiorPrecoMob = ordenarPorMaiorPrecoMob;
 
 /**
  * Classe responsavel pela ordenação de produtos na vitrine
  */
 export default class Ordenacao {
   constructor() {}
-
+  
+  /**
+   * 
+   * @returns Exibe o select ordenacao de ordenacao
+   */
   exibirSelectOrdenacao() {
     let selectOrdenacao = `    
         <div id="selectOrdenacao" class="select">
@@ -55,6 +62,7 @@ export default class Ordenacao {
   }
 } //EOC
 
+
 export const ordenacaoCtrl = new Ordenacao();
 
 export function ordenarPorMaiorPreco() {
@@ -75,4 +83,17 @@ export function ordenarPorMaiorPreco() {
       ordenacaoCtrl.ordenarPorMaiorPreco();
       break;
   }
+}
+
+
+export function ordenarPorDataMob(){
+  ordenacaoCtrl.ordenarPorData();
+}
+
+export function ordenarPorMenoPrecoMob(){
+  ordenacaoCtrl.ordenarPorMenoPreco();
+}
+
+export function ordenarPorMaiorPrecoMob(){
+  ordenacaoCtrl.ordenarPorMaiorPreco();
 }

@@ -16,10 +16,10 @@ export default class TamanhoController {
     let listaTamanhos = `                       
         <div id="cabecalhoFiltroTamanho" class="flex column">
 
-            <div class="flex space-between flex-center" display:inline-flex;>
+            <div class="flex space-between flex-center">
                 <h3>TAMANHOS</h3>
                 <div id="btnMobExibirTamanho" onclick="exibirListaTamanhoMobile()"><h3 class="btnAdd">&#x2b;</h3></div>
-                <div id="btnMobEsconderTamanho" onclick="esconderListaTamanhoMobile()"><h3>&#9866;</h3></div>
+                <div id="btnMobEsconderTamanho" onclick="esconderListaTamanhoMobile()"><h3 class="btnAdd">&#9866;</h3></div>
             </div>
         
         

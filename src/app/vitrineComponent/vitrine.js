@@ -15,11 +15,14 @@ export default class VitrineController {
   listaProdutos = [];
   produto;
   sacola;
+  qtdProdutosTotal;
+  qtdProdutosExibindo = 6;
   constructor() {
 
     this.vitrine = document.getElementById("vitrine");
 
     this.produto = new Produto();
+    this.qtdProdutosTotal = this.produto.listaProdutos;
     this.listaProdutos = this.produto.listaProdutos;
     this.sacola = new SacolaController();
    
@@ -30,14 +33,17 @@ export default class VitrineController {
 
   }
 
-  // Carrega a lista de produtos
+  /**
+   * CArrega a lista de produtos para exibir na Vitrine 
+   * @param {*} listaProdutos 
+   */
   exibirProdutos(listaProdutos) {      
 
     let lista = ``;
 
     lista += ordenacaoCtrl.exibirSelectOrdenacao();
 
-    for (var i = 0; i < listaProdutos.length; i++) {
+    for (var i = 0; i < this.qtdProdutosExibindo; i++) {
       lista += `<div class="produto">
                 <div class="foto"><img src=" ${
                   listaProdutos[i].urlImagem
@@ -98,15 +104,26 @@ export default class VitrineController {
 const sacola = new SacolaController();
 
 /// Adiciona um produto à sacola
-export function adicionarProdutoCarrinho(produto) {
-
-  console.log("Clicked " + produto);  
+export function adicionarProdutoCarrinho(produto) {  
 
   sacola.adicionarNaSacola(produto);
 
   var bag = document.getElementById('itensNaBolsa').innerHTML = sacola.itensNaSacola.length;
 }
 
+
+/**
+ * 
+ * @param {*} listaProdutos 
+ */
+export function exibirProdutos(listaProdutos){
+
+  document.getElementById('divBtnCarregarMais');
+
+  vitrineCtrl.qtdProdutosExibindo +3;
+
+  vitrineCtrl.exibirProdutos(listaProdutos);
+}
 
 
 /** Carrega a vitrine recebendo como parâmetro

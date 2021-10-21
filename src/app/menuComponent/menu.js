@@ -8,11 +8,14 @@ export default class MenuController {
         
         this.menu = document.getElementById("menu");
 
-        this.menu.innerHTML = `            
+        this.menu.innerHTML = `
+        <div id="menuContent" class="flex space-between">            
             <div id="logo"></div>
-            <div id="bagIcon">
+            <div>
                 <div id="itensNaBolsa">0</div>
-            </div>
+                <div id="bagIcon"></div>                
+            <div>
+        </div>
         `;
     }
     

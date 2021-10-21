@@ -6,6 +6,75 @@
   border: solid 0px red;
 }
 
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.column-nowrap {
+  flex-flow: column nowrap;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row-wrap {
+  flex-flow: row wrap;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.space-aroud {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+/** Alinhamento vertical*/
+.flex-start {
+  align-self: flex-start;
+}
+
+.flex-center {
+  align-items: center;
+}
+
+.flex-end {
+  align-self: flex-end;
+}
+
+/* Os itens não se expandem para ocupar o container. */
+.grow0 {
+  flex-grow: 0;
+}
+/* Os itens se expandem igualmente para ocupar o container. Utilizando apenas o flex-grow, o crescimento é distribuído igualmente antes e depois do conteúdo de cada elemento. (pois por padrão o flex-basis é auto) */
+.grow1 {
+  flex-grow: 1;
+}
+
+/* Os itens se expandem duas vezes mais que aqueles com flex-grow: 1; */
+.grow2 {
+  flex-grow: 2;
+}
+
+
+
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -58,39 +127,46 @@ a:visited {
   background-color: #ffffff;
 }
 
-#logo {
-  position: relative;
-  top: 18px;
-  left: 135px;
-  float: left;
-  width: 832px;
-  height: 64px;
+#menuContent{
+  padding-left:135px;
+  padding-right:135px;
+}
+
+#logo {   
+  width: 135px;
+  height: auto;
+  position:relative;
+  top:20px;
+  left:0px;  
   background-image: url("../assets/logo-m3.png");
   background-repeat: no-repeat;
   cursor: pointer;
 }
 
-#bagIcon {
-  position: relative;
-  top: 20px;
-  left: 135px;
-  float: left;
-  width: 21px;
-  height: 21px;
+#bagIcon {  
+  position:relative;
+  top:-5px;
+  left:-15px;
+  width: 25px;
+  height: 25px;
   background-image: url("../assets/bag.png");
   background-repeat: no-repeat;
   cursor: pointer;
+  z-index:10;
 }
 
 #itensNaBolsa {
-  position: relative;
-  top: 15px;
-  left: 15px;
-  font-size: 0.8em;
+  position:relative;
+  top:25px;
+  left:0px;
+  width:19px;
+  height:19px;
+  font-size: 0.75em;
   font-weight: 600;
   color: #fff;
   background-color: #00c0ee;
-  border-radius: 100px;
+  border-radius: 96px;
+  z-index:20;
   text-align: center;
 }
 
@@ -113,7 +189,7 @@ a:visited {
 
 .nomeProduto {
   position: relative;
-  top: 8px;
+  top: 0px;
   float: left;
   font-size: 11pt;
   letter-spacing: 1px;
@@ -121,7 +197,7 @@ a:visited {
   text-align: center;
   font-weight: normal;
   width: 195px;
-  height: 36px;
+  height: auto;  
 }
 
 .preco {
@@ -275,7 +351,7 @@ a:visited {
   opacity: 0;
   cursor: pointer;
   height: 0;
-  width: 0;
+  width: 0;  
 }
 
 /* Cria um novo Checkbox */
@@ -286,12 +362,12 @@ a:visited {
   height: 15px;
   width: 15px;
   background-color: #eee;
-  border: solid 1px #7f7f7f;
+  border: solid 1px #7f7f7f;  
 }
 
 /* On mouse-over, adiciona um background cinza */
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #fff;
   border: solid 1px #7f7f7f;
 }
 
@@ -314,10 +390,10 @@ a:visited {
 
 /* Estiliza o checkmark/indicator */
 .container .checkmark:after {
-  left: 1px;
-  top: 1px;
-  width: 13px;
-  height: 13px;
+  left: 3px;
+  top: 3px;
+  width: 9px;
+  height: 9px;
   background-color: #00c0ee;
   border-width: 1 3px 3px 0;
 }
@@ -469,6 +545,19 @@ option[value=""][disabled] {
   display: block;
 }
 
+.conteudoFaixaDePreco{
+  display: block;
+}
+
+#btnMobExibirPrecoMob {
+  display: none;
+}
+
+#btnMobEsconderPrecoMob {
+  display: none;
+}
+
+
 /** ###########################*/
 /** Desktop */
 /** ###########################*/
@@ -491,7 +580,7 @@ option[value=""][disabled] {
     left: 135px;
     float: left;
     width: 195px;
-    height: auto;
+    min-height: 100vh;
     z-index: 0;
   }
 
@@ -511,77 +600,25 @@ option[value=""][disabled] {
 /** Mobile */
 /** ###########################*/
 @media (max-width: 960px) {
-  .flex {
-    display: flex;
+  
+  #menu {
+    margin: 0 auto;
+    min-width:320px;
+    height: 64px;
+    background-color: #ffffff;
   }
+  
 
-  .wrap {
-    flex-wrap: wrap;
-  }
-
-  .flex-1 {
-    flex: 1;
-  }
-
-  .nowrap {
-    flex-wrap: nowrap;
-  }
-
-  .column-nowrap {
-    flex-flow: column nowrap;
-  }
-
-  .column {
-    flex-direction: column;
-  }
-
-  .row-wrap {
-    flex-flow: row wrap;
-  }
-
-  .row {
-    flex-direction: row;
-  }
-
-  .space-aroud {
-    justify-content: space-around;
-  }
-
-  .space-between {
-    justify-content: space-between;
-  }
-
-  /** Alinhamento vertical*/
-  .flex-start {
-    align-self: flex-start;
-  }
-
-  .flex-center {
-    align-items: center;
-  }
-
-  .flex-end {
-    align-self: flex-end;
-  }
-
-  /* Os itens não se expandem para ocupar o container. */
-  .grow0 {
-    flex-grow: 0;
-  }
-  /* Os itens se expandem igualmente para ocupar o container. Utilizando apenas o flex-grow, o crescimento é distribuído igualmente antes e depois do conteúdo de cada elemento. (pois por padrão o flex-basis é auto) */
-  .grow1 {
-    flex-grow: 1;
-  }
-
-  /* Os itens se expandem duas vezes mais que aqueles com flex-grow: 1; */
-  .grow2 {
-    flex-grow: 2;
+  #menuContent{
+    width:100vw;    
+    padding-left:0px;
+    padding-right:0px;        
   }
 
   #cabecalho {
     position: fixed;
     top: 0px;
-    left: 0px;
+    left: 0px;    
   }
 
   #sessao {
@@ -597,24 +634,19 @@ option[value=""][disabled] {
   }
 
   #logo {
-    position: relative;
-    top: 24px;
-    left: 24px;
+    left:10px;    
     width: 135px;
-    height: 82px;
-
-    vertical-align: middle;
+    height: 36px;
   }
 
-  #bagIcon {
-    position: relative;
-    top: 20px;
-    left: 100px;
-    float: left;
-    width: 41px;
-    height: 41px;
-    background-image: url("../assets/bag.png");
-    background-repeat: no-repeat;
+  #bagIcon{
+    top:2px;
+    left:-25px;
+  }
+
+  #itensNaBolsa{
+    top:35px;
+    left:-10px;
   }
 
   #sidebar {
@@ -709,7 +741,7 @@ option[value=""][disabled] {
     padding-left: 20px;
   }
 
-  /** Escondidos o mobile*/
+  /** Escondidos no mobile*/
   #listaTamanho {
     display: none;
   }
@@ -718,8 +750,11 @@ option[value=""][disabled] {
   }
   #faixaDePreco {
     display: none;
+    padding-left: 25px;
+    text-align:left !important;
+    zoom: 1;
   }
-  #faixaDePreco > div {
+  #faixaDePreco > div {    
     display: none;
   }
   #idSelectOrdenacao {
@@ -757,13 +792,13 @@ option[value=""][disabled] {
   }
 
   #menuFiltroMobile {
-    position: fixed;
-    top: 0px;
+    position: absolute;    
+    top: -90px;
     left: 0px;
     width: 100vw;
-    min-height: 100vh;
-    z-index: 20;
-    background-color: #fff;
+    min-height:1080px !important; 
+    z-index: 20;    
+    background-color: #ffffff;
   }
 
   #btnMobExibirCores {
@@ -825,14 +860,63 @@ option[value=""][disabled] {
     font-size: 1em;
   }
 
-  .itemTamanho{
-    zoom:1.5;
+  .itemTamanho {
+    zoom: 1.5;
   }
 
   .itemTamanhoSelecionado {
+    zoom: 1.5;
+  }
 
-    zoom:1.5;
+  #conteudoFaixaDePreco{
+    display:none;
+    padding-left:30px;
+    padding-right:30px;
+    
+  }
+
+  #btnMobExibirPrecoMob {
+    display: flex;
   }
   
+  #btnMobEsconderPrecoMob {
+    display: none;
+  }
+
+  #btnFitroRodape{
+    display:inline-flex;
+    margin-top:40px;
+  }
+
+  #btnAplicarFiltro{
+    
+    background-color:#00c0ee;
+    color:#fff;
+    letter-spacing: 2px;
+    padding:10px 30px;
+    justify-content: center;
+    margin-right:10px;
+  }
+
+  #btnLimparFiltro {    
+    color:#666666;
+    border:solid 1px #666666;
+    letter-spacing: 2px;
+    padding: 10px 30px;
+    justify-content: center;
+    margin-left:10px;
+  }
+
+  /** Ordenar Mobile*/
+  #opcoesOrdenar{
+    text-align:left;
+    padding-left:30px;        
+  }  
+
+  #opcoesOrdenar > div {
+    padding-top:50px;        
+  }
+
+
 
 } /** EOF max-width 640px - Mobile */

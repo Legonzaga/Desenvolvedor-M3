@@ -26,7 +26,7 @@ export default class Produto {
       tamanho: "P",
       numeroParcelas: 3,
       urlImagem: "src/assets/img_2.png",
-      quantidade: 5,
+      quantidade: 3,
       dataCriacao: new Date('10-15-2020')
     },
     {
@@ -37,7 +37,7 @@ export default class Produto {
       tamanho: "M",
       numeroParcelas: 5,
       urlImagem: "src/assets/img_3.png",
-      quantidade: 1,
+      quantidade: 3,
       dataCriacao: new Date('09-14-2020')
 
     },
@@ -49,7 +49,7 @@ export default class Produto {
       tamanho: "G",
       numeroParcelas: 5,
       urlImagem: "src/assets/img_4.png",
-      quantidade: 1,
+      quantidade: 3,
       dataCriacao: new Date('08-13-2020')
     },
     {
@@ -60,7 +60,7 @@ export default class Produto {
       tamanho: "GG",
       numeroParcelas: 3,
       urlImagem: "src/assets/img_5.png",
-      quantidade: 2,
+      quantidade: 3,
       dataCriacao: new Date('07-15-2020')
     },
     {
@@ -82,7 +82,7 @@ export default class Produto {
       tamanho: "42",
       numeroParcelas: 5,
       urlImagem: "src/assets/img_7.png",
-      quantidade: 4,
+      quantidade: 3,
       dataCriacao: new Date('05-11-2020')
     },
     {
@@ -93,7 +93,7 @@ export default class Produto {
       tamanho: "G",
       numeroParcelas: 3,
       urlImagem: "src/assets/img_8.png",
-      quantidade: 2,
+      quantidade: 3,
       dataCriacao: new Date('10-10-2020')
     },
     {
@@ -104,7 +104,7 @@ export default class Produto {
       tamanho: "M",
       numeroParcelas: 5,
       urlImagem: "src/assets/img_9.png",
-      quantidade: 2,
+      quantidade: 3,
       dataCriacao: new Date('03-09-2020')
     },
     {
@@ -115,7 +115,7 @@ export default class Produto {
       tamanho: "46",
       numeroParcelas: 3,
       urlImagem: "src/assets/img_10.png",
-      quantidade: 1,
+      quantidade: 3,
       dataCriacao: new Date('10-08-2020')
     },
   ];
