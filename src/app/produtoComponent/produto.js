@@ -4,6 +4,10 @@ import { mensagemCtrl } from "../mensagemComponent/mensagem.js";
 // Tornando o acesso universal
 window.filtrarProdutos = filtrarProdutos;
 
+/**
+ * Componente responsavel pelo comportamento dos Produtos
+ */
+
 export default class ProdutoController {
   /** Recebe os produtos cadastrados em Models/Produto.js */
   listaDeProdutos = [];

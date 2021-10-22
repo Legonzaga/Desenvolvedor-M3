@@ -5,6 +5,12 @@ import CoresController from "../atributosComponent/cores.js";
 import { ordenacaoCtrl } from "../atributosComponent/ordenacao.js";
 import { produtoCtrl } from "../produtoComponent/produto.js";
 import { mensagemCtrl } from "../mensagemComponent/mensagem.js";
+
+
+
+/**
+ * Componente responsável pelo comportamento da Vitrine
+ */
 export default class VitrineController {
     listaProdutos = [];
     produto;

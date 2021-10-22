@@ -7,16 +7,6 @@ export default class Produto {
   urlImagem;
   numeroParcelas;
 
-  constructor() {
-    this._id = 0;
-    this.cor = "";
-    this.nome = "";
-    this.numeroParcelas = 0;
-    this.preco = 0;
-    this.tamanho = "";
-    this.urlImagem = "";
-  }
-
   listaProdutos = [
     {
       id: 0,
@@ -119,5 +109,17 @@ export default class Produto {
       dataCriacao: new Date('10-08-2020')
     },
   ];
+
+  constructor() {
+    this._id = 0;
+    this.cor = "";
+    this.nome = "";
+    this.numeroParcelas = 0;
+    this.preco = 0;
+    this.tamanho = "";
+    this.urlImagem = "";
+  }
+
+
 
 }

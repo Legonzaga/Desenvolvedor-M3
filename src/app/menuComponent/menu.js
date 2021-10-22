@@ -19,14 +19,8 @@ export default class MenuController {
         </div>
         `;
   }
-
-
-
-
 } // EOC
 
-
-
-export function exibirItensNaSacola(){
-    sacolaCtrl.exibirItensNaSacola();
+export function exibirItensNaSacola() {
+  sacolaCtrl.exibirItensNaSacola();
 }
