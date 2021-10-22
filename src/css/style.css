@@ -59,22 +59,6 @@
   align-self: flex-end;
 }
 
-/* Os itens não se expandem para ocupar o container. */
-.grow0 {
-  flex-grow: 0;
-}
-/* Os itens se expandem igualmente para ocupar o container. Utilizando apenas o flex-grow, o crescimento é distribuído igualmente antes e depois do conteúdo de cada elemento. (pois por padrão o flex-basis é auto) */
-.grow1 {
-  flex-grow: 1;
-}
-
-/* Os itens se expandem duas vezes mais que aqueles com flex-grow: 1; */
-.grow2 {
-  flex-grow: 2;
-}
-
-
-
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -127,46 +111,96 @@ a:visited {
   background-color: #ffffff;
 }
 
-#menuContent{
-  padding-left:135px;
-  padding-right:135px;
+#menuContent {
+  padding-left: 135px;
+  padding-right: 135px;
 }
 
-#logo {   
+#logo {
   width: 135px;
   height: auto;
-  position:relative;
-  top:20px;
-  left:0px;  
+  position: relative;
+  top: 20px;
+  left: 0px;
   background-image: url("../assets/logo-m3.png");
   background-repeat: no-repeat;
   cursor: pointer;
 }
 
-#bagIcon {  
-  position:relative;
-  top:-5px;
-  left:-15px;
+#bagIcon {
+  position: relative;
+  top: -5px;
+  left: -15px;
   width: 25px;
   height: 25px;
   background-image: url("../assets/bag.png");
   background-repeat: no-repeat;
   cursor: pointer;
-  z-index:10;
+  z-index: 10;
+}
+
+#itensNaSacola{
+  display:block;
+  margin-top:15px;
+  padding:25px;
+  padding-top:0px;
+  border: solid 1px #666666;
+}
+
+#itensNaSacola > h3 {
+  border-bottom: solid 1px #c7c7c7;
+}
+
+.linhaItemSacola {
+  display:inline-flex;  
+  width:100%;
+  margin-top: 10px;
+  border-bottom: solid 1px #f5f5f5;
+  text-align: left;
+  color:#666666;
+  font-size:10pt;
+}
+.linhaItemSacola > div:nth-child(1){
+  float:left;
+}
+
+.btnClose {
+  cursor: pointer;
+}
+
+.btnSuccess{
+  cursor: pointer;
+  padding:3px 8px;
+  background: #00c0ee;
+  color:#fff;
+}
+
+.btnPrimary{
+  cursor: pointer;
+  padding:3px 8px;
+  background: #000;
+  color:#fff;
+}
+
+
+#msgTop {
+  animation-name: popUpKeyFrame;
+  animation-duration: 2s;
+  z-index:40;
 }
 
 #itensNaBolsa {
-  position:relative;
-  top:25px;
-  left:0px;
-  width:19px;
-  height:19px;
+  position: relative;
+  top: 25px;
+  left: 0px;
+  width: 19px;
+  height: 19px;
   font-size: 0.75em;
   font-weight: 600;
   color: #fff;
   background-color: #00c0ee;
   border-radius: 96px;
-  z-index:20;
+  z-index: 20;
   text-align: center;
 }
 
@@ -197,7 +231,7 @@ a:visited {
   text-align: center;
   font-weight: normal;
   width: 195px;
-  height: auto;  
+  height: auto;
 }
 
 .preco {
@@ -246,11 +280,6 @@ a:visited {
   font-weight: 400;
 }
 
-#selectOrdenacao {
-  width: 100%;
-  text-align: right;
-  margin-top: 40px;
-}
 
 #listaTamanho {
   display: inline-block;
@@ -329,6 +358,7 @@ a:visited {
   background-color: #000000;
   text-align: center;
   color: #ffffff;
+  font-size:0.8rem;
 }
 
 /* Criando o Checkbox */
@@ -351,7 +381,7 @@ a:visited {
   opacity: 0;
   cursor: pointer;
   height: 0;
-  width: 0;  
+  width: 0;
 }
 
 /* Cria um novo Checkbox */
@@ -362,7 +392,7 @@ a:visited {
   height: 15px;
   width: 15px;
   background-color: #eee;
-  border: solid 1px #7f7f7f;  
+  border: solid 1px #7f7f7f;
 }
 
 /* On mouse-over, adiciona um background cinza */
@@ -399,66 +429,68 @@ a:visited {
 }
 
 /** Cria o estilo do select */
-select {
+
+
+#selectOrdenacao {
+  width: 100%;
+  text-align: right;
+  margin-top: 40px;
+  border:none;
+}
+
+
+.select {
   appearance: none;
-  background-color: transparent;
-  padding: 5px;
+  background-color: #fff;
+  padding: 3px;
   margin: 0;
   width: 155px;
   font-family: inherit;
   font-size: inherit;
-  cursor: pointer;
-  line-height: inherit;
+  cursor: pointer;  
+  
 }
 
-select:hover,
+
+#idSelectOrdenacao{
+  border:solid 1px #666;
+  padding:8px;
+}
+
+#idSelectOrdenacao > option:nth-child(1){
+  background-color: #c7c7c7;
+  color:#fff;
+}
+
+
+#idSelectOrdenacao > option:nth-child(2):hover{
+  background: #00c0ee !important;
+}
+
+/*
+#selectOrdenacao #idslectOrdenacao .ordenacaoOp:hover {
+  background: #00c0ee !important;
+}
+
+/**
 select:focus,
 select:active,
 select:focus {
   transition: 1s;
   color: inherit;
-  font-weight: bold;
+  font-weight: bold;  
 }
 
-select option :hover {
-  color: red;
+
+select :hover {
+  color: #00c0ee;
 }
+
 
 option[value=""][disabled] {
   display: none;
-}
-
-@keyframes mensagemKeyFrame {
-  from {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-    font-size: 0em;
-  }
-  to {
-    width: 250px;
-    height: 250px;
-    opacity: 1;
-    font-size: 1.2em;
-  }
-}
-
-@keyframes produtoKeyFrame {
-  from {
-    opacity: 0;
-    position: relative;
-    floar: left;
-    top: -50px;
-    left: 0px;
-  }
-  to {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    floar: left;
-    opacity: 1;
-  }
-}
+}]
+*/
 
 #idMensagem {
   position: fixed;
@@ -545,7 +577,7 @@ option[value=""][disabled] {
   display: block;
 }
 
-.conteudoFaixaDePreco{
+.conteudoFaixaDePreco {
   display: block;
 }
 
@@ -556,7 +588,6 @@ option[value=""][disabled] {
 #btnMobEsconderPrecoMob {
   display: none;
 }
-
 
 /** ###########################*/
 /** Desktop */
@@ -599,26 +630,24 @@ option[value=""][disabled] {
 /** ###########################*/
 /** Mobile */
 /** ###########################*/
-@media (max-width: 960px) {
-  
+@media (max-width: 720px) {
   #menu {
     margin: 0 auto;
-    min-width:320px;
+    min-width: 320px;
     height: 64px;
     background-color: #ffffff;
   }
-  
 
-  #menuContent{
-    width:100vw;    
-    padding-left:0px;
-    padding-right:0px;        
+  #menuContent {
+    width: 100vw;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   #cabecalho {
     position: fixed;
     top: 0px;
-    left: 0px;    
+    left: 0px;
   }
 
   #sessao {
@@ -634,19 +663,19 @@ option[value=""][disabled] {
   }
 
   #logo {
-    left:10px;    
+    left: 10px;
     width: 135px;
     height: 36px;
   }
 
-  #bagIcon{
-    top:2px;
-    left:-25px;
+  #bagIcon {
+    top: 2px;
+    left: -25px;
   }
 
-  #itensNaBolsa{
-    top:35px;
-    left:-10px;
+  #itensNaBolsa {
+    top: 35px;
+    left: -10px;
   }
 
   #sidebar {
@@ -741,6 +770,7 @@ option[value=""][disabled] {
     padding-left: 20px;
   }
 
+  /** ####################*/
   /** Escondidos no mobile*/
   #listaTamanho {
     display: none;
@@ -751,10 +781,10 @@ option[value=""][disabled] {
   #faixaDePreco {
     display: none;
     padding-left: 25px;
-    text-align:left !important;
+    text-align: left !important;
     zoom: 1;
   }
-  #faixaDePreco > div {    
+  #faixaDePreco > div {
     display: none;
   }
   #idSelectOrdenacao {
@@ -792,12 +822,12 @@ option[value=""][disabled] {
   }
 
   #menuFiltroMobile {
-    position: absolute;    
+    position: absolute;
     top: -90px;
     left: 0px;
     width: 100vw;
-    min-height:1080px !important; 
-    z-index: 20;    
+    min-height: 1080px !important;
+    z-index: 20;
     background-color: #ffffff;
   }
 
@@ -808,6 +838,19 @@ option[value=""][disabled] {
     font-weight: 900;
     font-size: 2em;
   }
+
+
+  /** Controle de Checkboxes*/
+/* Criando o Checkbox */
+.container {
+  padding-top:20px;  
+}
+
+
+/* Cria um novo Checkbox */
+.checkmark {
+  top: 22px;
+}
 
   /** Controle dos botões do Filtro Mobile */
   #btnMobExibirCores {
@@ -868,55 +911,199 @@ option[value=""][disabled] {
     zoom: 1.5;
   }
 
-  #conteudoFaixaDePreco{
-    display:none;
-    padding-left:30px;
-    padding-right:30px;
-    
+  #conteudoFaixaDePreco {
+    display: none;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   #btnMobExibirPrecoMob {
     display: flex;
   }
-  
+
   #btnMobEsconderPrecoMob {
     display: none;
   }
 
-  #btnFitroRodape{
-    display:inline-flex;
-    margin-top:40px;
+  #btnFitroRodape {
+    display: inline-flex;
+    margin-top: 40px;
   }
 
-  #btnAplicarFiltro{
-    
-    background-color:#00c0ee;
-    color:#fff;
-    letter-spacing: 2px;
-    padding:10px 30px;
-    justify-content: center;
-    margin-right:10px;
-  }
-
-  #btnLimparFiltro {    
-    color:#666666;
-    border:solid 1px #666666;
+  #btnAplicarFiltro {
+    background-color: #00c0ee;
+    color: #fff;
     letter-spacing: 2px;
     padding: 10px 30px;
     justify-content: center;
-    margin-left:10px;
+    margin-right: 10px;
+  }
+
+  #btnLimparFiltro {
+    color: #666666;
+    border: solid 1px #666666;
+    letter-spacing: 2px;
+    padding: 10px 30px;
+    justify-content: center;
+    margin-left: 10px;
   }
 
   /** Ordenar Mobile*/
-  #opcoesOrdenar{
-    text-align:left;
-    padding-left:30px;        
-  }  
-
-  #opcoesOrdenar > div {
-    padding-top:50px;        
+  #opcoesOrdenar {
+    text-align: left;
+    padding-left: 30px;
   }
 
-
-
+  #opcoesOrdenar > div {
+    padding-top: 50px;
+  }
 } /** EOF max-width 640px - Mobile */
+
+/** ANIMAÇÕES */
+
+.grow:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  animation-name: produtoKeyFrame;
+  animation-duration: 1s;
+}
+
+.rotate:hover {
+  -webkit-transform: rotateZ(-30deg);
+  -ms-transform: rotateZ(-30deg);
+  transform: rotateZ(-30deg);
+}
+
+.swing:hover {
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@keyframes grow {
+  from {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  to {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes mensagemKeyFrame {
+  from {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    font-size: 0em;
+  }
+  to {
+    width: 250px;
+    height: 250px;
+    opacity: 1;
+    font-size: 1.2em;
+  }
+}
+
+@keyframes popUpKeyFrame {
+  from {
+    position: relative;
+    top: 0px;
+    opacity: 0;
+    bottom: -50px;
+  }
+  to {
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes produtoKeyFrame {
+  from {
+    opacity: 0;
+    position: relative;
+    float: left;
+    top: -50px;
+    left: 0px;
+  }
+  to {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    floar: left;
+    opacity: 1;
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(45deg);
+    transform: scaleY(5);
+    transform: scaleX(1.2);
+  }
+  to {
+    transform: scaleY(1);
+    transform: scaleX(1);
+    transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  30% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  50% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  65% {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+  }
+  80% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}

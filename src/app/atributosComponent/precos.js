@@ -1,6 +1,7 @@
 import { coresCtrl } from "./cores.js";
 import { tamanhoCtrl } from "./tamanho.js";
 import { filtrarProdutos } from "../produtoComponent/produto.js";
+import { sidebarCtrl } from "../sidebarComponent/sidebar.js";
 
 
 /** Tornando o acesso universal para que possa receber eventos do DOM */
@@ -12,6 +13,8 @@ window.esconderFiltroPrecoMob = esconderFiltroPrecoMob;
 
 export default class PrecoController {
   faixaPrecoSelecionada = 0; // De 1 -5 para checkbox da Faixa de preço
+
+  menuAbertoMobile = false; // Verifica se o menu Faixa de Preços está aberto no mobile
 
   constructor() {}
 
@@ -62,9 +65,7 @@ export default class PrecoController {
     return listaPrecos;
   }
 
-  selecionarFaixaPreco(selecao) {
-
-    console.log(selecao.checked);
+  selecionarFaixaPreco(selecao) {    
 
     if(selecao.checked === false){
       this.faixaPrecoSelecionada = 0;
@@ -75,8 +76,7 @@ export default class PrecoController {
       //Resetando os checkboxes
       for (const p of faixaDePreco) {
         if (p.checked) {
-          p.checked = false;
-          console.log(p);
+          p.checked = false;          
         }
       }
   
@@ -102,6 +102,9 @@ export function selecionarFaixaPreco(selecao) {
 
 export function exibirFiltroPrecoMob(){
 
+  precoCtrl.menuAbertoMobile = true;
+  sidebarCtrl.exibirBtnFiltro();
+
   let btnMobExibirPrecoMob = document.getElementById('btnMobExibirPrecoMob');
   let btnMobEsconderPrecoMob = document.getElementById('btnMobEsconderPrecoMob');
 
@@ -115,6 +118,10 @@ export function exibirFiltroPrecoMob(){
 
 
 export function esconderFiltroPrecoMob(){
+
+  precoCtrl.menuAbertoMobile = false;
+  
+  sidebarCtrl.exibirBtnFiltro();
 
   let btnMobExibirPrecoMob = document.getElementById('btnMobExibirPrecoMob');
   let btnMobEsconderPrecoMob = document.getElementById('btnMobEsconderPrecoMob');

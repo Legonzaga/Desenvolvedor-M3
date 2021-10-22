@@ -1,51 +1,54 @@
 import Produto from "../models/produto.js";
-import SacolaController from "../sacolaComponent/sacola.js";
+import SacolaController, { sacolaCtrl } from "../sacolaComponent/sacola.js";
 import ProdutoController from "../produtoComponent/produto.js";
 import CoresController from "../atributosComponent/cores.js";
 import { ordenacaoCtrl } from "../atributosComponent/ordenacao.js";
-import produtoCtrl from "../produtoComponent/produto.js";
-
-// Tornando o acesso niversal
-window.carregarVitrine = carregarVitrine;
-window.exibirFiltroProdutos = exibirFiltroProdutos;
-window.adicionarProdutoCarrinho = adicionarProdutoCarrinho;
-
-
+import { produtoCtrl } from "../produtoComponent/produto.js";
+import { mensagemCtrl } from "../mensagemComponent/mensagem.js";
 export default class VitrineController {
   listaProdutos = [];
   produto;
   sacola;
   qtdProdutosTotal;
-  qtdProdutosExibindo = 6;
+  qtdProdutosExibindo;
+  vitrine;
+
   constructor() {
 
     this.vitrine = document.getElementById("vitrine");
 
-    this.produto = new Produto();
+    this.sacola = new SacolaController(); // Instanciando o controlador da sacola
+    this.produto = new Produto(); // instanciando o controlador de produtos
     this.qtdProdutosTotal = this.produto.listaProdutos;
     this.listaProdutos = this.produto.listaProdutos;
-    this.sacola = new SacolaController();
-   
+
     produtoCtrl.exibindoNaVitrine = this.listaProdutos;
+    produtoCtrl.contador = produtoCtrl.exibindoNaVitrine.length;
 
-    this.exibirProdutos(produtoCtrl.exibindoNaVitrine);
-    
+    produtoCtrl.novaListaProdutos = produtoCtrl.exibindoNaVitrine;
+    produtoCtrl.contador = 3; // Iniciando a vitrine exibindo 3 produtos
+  } // Fim do consttrutor
 
-  }
 
   /**
-   * CArrega a lista de produtos para exibir na Vitrine 
-   * @param {*} listaProdutos 
+   * Cria a View da Vitrine para exibir os produtos
+   * @param {*} listaProdutos
    */
-  exibirProdutos(listaProdutos) {      
+  exibirProdutos(listaProdutos) {
+    //Se o somatório do contador de Produtos na Vitrine for maior que o
+    //array de produtos na memoris
+    if (produtoCtrl.contador > listaProdutos.length) {
+      produtoCtrl.contador = listaProdutos.length;
+    }
+
+    this.vitrine.innerHTML = ordenacaoCtrl.exibirSelectOrdenacao();
 
     let lista = ``;
 
-    lista += ordenacaoCtrl.exibirSelectOrdenacao();
-
-    for (var i = 0; i < this.qtdProdutosExibindo; i++) {
+    //
+    for (var i = 0; i < produtoCtrl.contador; i++) {
       lista += `<div class="produto">
-                <div class="foto"><img src=" ${
+                <div class="foto grow"><img src=" ${
                   listaProdutos[i].urlImagem
                 }"></div>
                 <div class="nomeProduto"> ${listaProdutos[i].descricao}</div>
@@ -54,90 +57,89 @@ export default class VitrineController {
                   .replace(".", ",")}</div>
                 <div class="parcelamento">até ${
                   listaProdutos[i].numeroParcelas
-                }x sem juros</div>
-                <div class="btnComprar" onclick="adicionarProdutoCarrinho(${ listaProdutos[i].id })" id="${listaProdutos[i].id}"><p>Comprar</p></div>
+                }x sem juros</div>`;
+
+      // Escondendo o botão de compra caso o item não tenha mais estoque
+      if (listaProdutos[i].quantidade !== 0) {
+        lista += `<div class="btnComprar swing" onclick="adicionarProdutoCarrinho(${listaProdutos[i].id})" id="${listaProdutos[i].id}"><p>Comprar</p></div>
             </div>`;
-    }    
+      } else {
+        lista += `<div style="text-align:center;" onclick="" id="${listaProdutos[i].id}"><p>ESGOTADO</p></div>
+            </div>`;
+      }
 
-    this.vitrine.innerHTML = lista;
-
-    this.vitrine.innerHTML += `
-        <div id="divBtnCarregarMais"><div id="btnCarregarMais">Carregar Mais</div></div>
-    `;
-
-  }
-  
-  /**
-   * 
-   */
-  exibirFiltroProdutos(){
-
-    let coresCtrl = new CoresController();
-    let produtoCtrl = new ProdutoController();
-
-    let produtos = produtoCtrl.filtrarProdutos(coresCtrl.coresSelecionadas, [], []);
-
-    this.exibirProdutos(produtos);
-
-  }
-
-
-  // Retorna uma lista de tamanhos UNICOS dinamicamente presente no array
-  filtroPorTamanho(listaProdutos) {
-    let lista = listaProdutos;
-
-    let arrayTamanho = [];
-
-    for (const i of lista) {
-      arrayTamanho.push(i.tamanho);
     }
 
-    let retorno = [...new Set(arrayTamanho)];
-    console.log(retorno);
+    this.vitrine.innerHTML += lista;
+
+    let btnCarregarMais = ``;
+
+    if (listaProdutos.length <= produtoCtrl.contador) {
+      btnCarregarMais = `
+      <div id="divBtnCarregarMais" onclick="carregarMaisProdutos()">
+        <div style="color:#000; font-weight:600;"><code>Listagem completa. Exibindo ${produtoCtrl.contador} produto(s).</h3></code>
+      </div>`;
+    } else {
+      if (listaProdutos.length != 0) {
+        btnCarregarMais = `<div id="divBtnCarregarMais" onclick="carregarMaisProdutos()"><div id="btnCarregarMais">Carregar Mais</div></div>`;
+      }
+    }
+    
+    this.vitrine.innerHTML += btnCarregarMais;
   }
+
 } //EOC
 
 /** ########################################################################### */
 
+/**
+ * Instancia a Vitrine 
+ * Carrega a View da vitrine recebendo como parâmetro
+ *  um array de produtos
+ */
+export const vitrineCtrl = new VitrineController();
 
-
-const sacola = new SacolaController();
-
-/// Adiciona um produto à sacola
-export function adicionarProdutoCarrinho(produto) {  
-
-  sacola.adicionarNaSacola(produto);
-
-  var bag = document.getElementById('itensNaBolsa').innerHTML = sacola.itensNaSacola.length;
-}
-
+vitrineCtrl.exibirProdutos(produtoCtrl.exibindoNaVitrine);
 
 /**
- * 
- * @param {*} listaProdutos 
+ * Método de acesso universal para carregar a vitrine 
+ * @param {*} produtos 
  */
-export function exibirProdutos(listaProdutos){
-
-  document.getElementById('divBtnCarregarMais');
-
-  vitrineCtrl.qtdProdutosExibindo +3;
-
-  vitrineCtrl.exibirProdutos(listaProdutos);
-}
-
-
-/** Carrega a vitrine recebendo como parâmetro
- *  um array de produtos 
- */
- const vitrineCtrl = new VitrineController();
-
 export function carregarVitrine(produtos) {
-
+  console.log(produtos);
   vitrineCtrl.exibirProdutos(produtos);
-
 }
 
-export function exibirFiltroProdutos(){
+export function exibirFiltroProdutos() {
   vitrineCtrl.exibirFiltroProdutos();
 }
 
+/**
+ * Adiciona mais 3 produtos na vitrine
+ * @param {*} listaProdutos
+ */
+export function carregarMaisProdutos() {
+  produtoCtrl.contador += 3; // Adicionando mais 3 produtos a vitrine
+
+  document.getElementById("divBtnCarregarMais");
+
+  vitrineCtrl.exibirProdutos(produtoCtrl.novaListaProdutos);
+}
+
+/** Adiciona um produto à sacola e atualiza na view*/
+export function adicionarProdutoCarrinho(produto) {
+  sacolaCtrl.adicionarNaSacola(produto);
+  let bag = document.getElementById("itensNaBolsa");
+  bag.innerHTML = sacolaCtrl.itensNaSacola.length;
+  document.getElementById("itensNaBolsa").style.animation = "grow";
+  document.getElementById("itensNaBolsa").style.animationDuration = "2s";
+  document.getElementById("bagIcon").style.animation = "grow";
+  document.getElementById("bagIcon").style.animationDuration = "2s";
+}
+
+// Tornando o acesso niversal
+window.carregarVitrine = carregarVitrine;
+window.exibirFiltroProdutos = exibirFiltroProdutos;
+window.adicionarProdutoCarrinho = adicionarProdutoCarrinho;
+
+window.carregarMaisProdutos = carregarMaisProdutos;

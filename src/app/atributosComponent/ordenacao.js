@@ -19,11 +19,11 @@ export default class Ordenacao {
   exibirSelectOrdenacao() {
     let selectOrdenacao = `    
         <div id="selectOrdenacao" class="select">
-            <select id="idSelectOrdenacao" onchange="ordenarPorMaiorPreco();">
+            <select name="Selectname" id="idSelectOrdenacao" onchange="ordenarPorMaiorPreco();">
                 <option id="ordenacaoOp" value="0">Ordenar por:</option>
-                <option class="selectOpt" value="1">Mais recentes</option>
-                <option class="selectOpt" value="2">Menor preço</option>
-                <option class="selectOpt" value="3" >Maior preço</option>
+                <option value="1">Mais recentes</option>
+                <option value="2">Menor preço</option>
+                <option value="3">Maior preço</option>
             </select>
         </div>
         <span id="ordem"></span>

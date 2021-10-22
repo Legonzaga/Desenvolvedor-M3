@@ -5,12 +5,18 @@ import { mensagemCtrl } from "../mensagemComponent/mensagem.js";
 window.filtrarProdutos = filtrarProdutos;
 
 export default class ProdutoController {
-  listaDeProdutos = []; // Recebe os produtos cadastrados em Models/Produto.js
-  novaListaProdutos = []; // Usado para realizar os para o filtro de produtos.
+  /** Recebe os produtos cadastrados em Models/Produto.js */
+  listaDeProdutos = [];
+
+  /** Usado para realizar os para o filtro de produtos. */
+  novaListaProdutos = [];
   exibindoNaVitrine = [];
   produtos;
   coresSelecionadas;
   tamanhoSelecionado;
+
+  /** Contador de produtos exibindoNaVitrine */
+  contador = 0;
 
   constructor() {
     this.produtos = new Produto();
@@ -34,21 +40,18 @@ export default class ProdutoController {
       arrayCores,
       this.novaListaProdutos
     );
-    console.log(this.novaListaProdutos);
 
     // Filtro por Tamanho
     this.novaListaProdutos = this.filtroTamanho(
       tamanhoSelecionado,
       this.novaListaProdutos
     );
-    console.log(this.novaListaProdutos);
 
     //Filtro por Faixa de Preço
     this.novaListaProdutos = this.filtroPreco(
       faixaDePreco,
       this.novaListaProdutos
     );
-    console.log(this.novaListaProdutos);
 
     // NOT FOUND - Caso não encontra produtos com o filtro selecionado
     if (this.novaListaProdutos.length === 0) {
@@ -62,6 +65,7 @@ export default class ProdutoController {
       }, 500);
     }
 
+    produtoCtrl.contador = 3;
     this.exibindoNaVitrine = this.novaListaProdutos;
 
     carregarVitrine(this.exibindoNaVitrine); // Definida em VitrineController. Método universal.
@@ -98,7 +102,6 @@ export default class ProdutoController {
       this.novaListaProdutos = novaListaProdutos.filter(
         (x) => x.tamanho === tamanhoSelecionado
       );
-      console.log(novaListaProdutos);
     } else {
       novaListaProdutos = this.listaDeProdutos;
     }

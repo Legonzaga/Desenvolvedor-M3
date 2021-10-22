@@ -1,6 +1,8 @@
 import Cores from "../models/cores.js";
 import { tamanhoCtrl } from "./tamanho.js";
 import { precoCtrl } from "./precos.js";
+import { produtoCtrl } from "../produtoComponent/produto.js";
+import { sidebarCtrl } from "../sidebarComponent/sidebar.js";
 
 // Tornando o acesso universal
 window.selecionarCor = selecionarCor;
@@ -19,6 +21,8 @@ export default class CoresController {
   qtdTotalCores; // Quantidade total de cores
   coresSelecionadas = [];
 
+  menuAbertoMobile = false; // Verifica se o menu está aberto no Mobile
+
   constructor() {
     this.cores = new Cores();
     this.qtdTotalCores = this.cores.listaCores.length;
@@ -30,8 +34,8 @@ export default class CoresController {
       <div id="listaCores" class="flex column">            
         <div class="flex space-between flex-center">
           <h3>CORES</h3>
-          <div id="btnMobExibirCores" onclick="exibirListaCoresMobile()"><h3>&#x2b;</h3></div>
-          <div id="btnMobEsconderCores" onclick="esconderListaCoresMobile()"><h3>&#9866;</h3></div>
+          <div id="btnMobExibirCores"><h3  onclick="exibirListaCoresMobile()">&#x2b;</h3></div>
+          <div id="btnMobEsconderCores"><h3 onclick="esconderListaCoresMobile()">&#9866;</h3></div>
         </div>
         `;
 
@@ -91,7 +95,6 @@ export function verTodasCores() {
   coresCtrl.exibirListaCompletaCores();
 
   let cor = document.getElementsByTagName("cor").value;
-  console.log(cor);
 }
 
 /// Recebe o evento onclick. Esconde lista completa de cores na sidebar
@@ -115,28 +118,31 @@ export function selecionarCor() {
     tamanhoCtrl.tamanhoSelecionado,
     precoCtrl.faixaPrecoSelecionada
   ); //Função definida em produtos.js
-
-  console.log(coresCtrl.coresSelecionadas);
 }
 
 export function exibirListaCoresMobile() {
+
   document
     .getElementById("btnMobExibirCores")
     .addEventListener("click", function () {
-
       this.style.display = "none";
 
       document.getElementById("btnMobEsconderCores").style.display = "flex";
-      document.getElementById("btnMobEsconderCores").style.visibility = "visible";
+      document.getElementById("btnMobEsconderCores").style.visibility =
+        "visible";
 
       document.getElementById("btnMobExibirCores").style.display = "none";
 
       document.getElementById("cores").style.visibility = "visible";
       document.getElementById("cores").style.display = "block";
     });
+
+    coresCtrl.menuAbertoMobile = true;
+    sidebarCtrl.exibirBtnFiltro();
 }
 
 export function esconderListaCoresMobile() {
+
   document
     .getElementById("btnMobEsconderCores")
     .addEventListener("click", function () {
@@ -147,4 +153,7 @@ export function esconderListaCoresMobile() {
       document.getElementById("cores").style.visibility = "hidden";
       document.getElementById("cores").style.display = "none";
     });
+
+    coresCtrl.menuAbertoMobile = false;
+    sidebarCtrl.exibirBtnFiltro();
 }

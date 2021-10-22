@@ -1,9 +1,10 @@
 import CoresController from "../atributosComponent/cores.js";
 import TamanhoController from "../atributosComponent/tamanho.js";
-import PrecoController from "../atributosComponent/precos.js";
+import PrecoController, { precoCtrl } from "../atributosComponent/precos.js";
 import { coresCtrl } from "../atributosComponent/cores.js";
 import { tamanhoCtrl } from "../atributosComponent/tamanho.js";
-
+import { produtoCtrl } from "../produtoComponent/produto.js";
+import VitrineController, { carregarVitrine, vitrineCtrl } from "../vitrineComponent/vitrine.js";
 
 // Tornando o acesso universal
 window.exibirFiltrarMobile = exibirFiltrarMobile;
@@ -12,16 +13,12 @@ window.exibirOrdenarMobile = exibirOrdenarMobile;
 
 window.limparFiltros = limparFiltros;
 
-
 export default class SidebarController {
   coresControl;
   tamanhoControl;
   precoControl;
 
-
-
   constructor() {
-
     this.coresControl = new CoresController();
     this.tamanhoControl = new TamanhoController();
     this.precoControl = new PrecoController();
@@ -92,16 +89,8 @@ export default class SidebarController {
       .insertAdjacentHTML("afterend", preco);
     document.getElementById("conteudoFaixaDePreco").style.display = "block";
 
-    let botoes = `
-    <div id="btnFitroRodape">      
-      <div id="btnAplicarFiltro">APLICAR</div>
-      <div id="btnLimparFiltro" onclick="limparFiltros()">LIMPAR</div>
-    </div>
-    `;
 
-    document
-      .getElementById("conteudoFaixaDePreco")
-      .insertAdjacentHTML("afterend", botoes);
+
 
     document.getElementById("vitrine").style.visibility = "hidden";
   }
@@ -128,28 +117,77 @@ export default class SidebarController {
       </div>
     `;
 
-    
-    document.getElementById("menuFiltroMobile").insertAdjacentHTML('beforeend', opcoes);
+    document
+      .getElementById("menuFiltroMobile")
+      .insertAdjacentHTML("beforeend", opcoes);
 
-    document.getElementById("ordemMaisRecentesMob").addEventListener('click', function(){
-      ordenarPorDataMob(); //Função de acesso universal definida em ordenacao.js 
-      fecharFiltroMobile();  
-    });
+    document
+      .getElementById("ordemMaisRecentesMob")
+      .addEventListener("click", function () {
+        ordenarPorDataMob(); //Função de acesso universal definida em ordenacao.js
+        fecharFiltroMobile();
+      });
 
-    document.getElementById("ordemMenorPrecoMob").addEventListener('click', function(){
-      ordenarPorMenoPrecoMob(); //Função de acesso universal definida em ordenacao.js 
-      fecharFiltroMobile();
-    });
+    document
+      .getElementById("ordemMenorPrecoMob")
+      .addEventListener("click", function () {
+        ordenarPorMenoPrecoMob(); //Função de acesso universal definida em ordenacao.js
+        fecharFiltroMobile();
+      });
 
-    
-    document.getElementById("ordemMaiorPrecoMob").addEventListener('click', function(){
-      ordenarPorMaiorPrecoMob(); //Função de acesso universal definida em ordenacao.js 
-      fecharFiltroMobile();
-    });
-
+    document
+      .getElementById("ordemMaiorPrecoMob")
+      .addEventListener("click", function () {
+        ordenarPorMaiorPrecoMob(); //Função de acesso universal definida em ordenacao.js
+        fecharFiltroMobile();
+      });
   }
-}
 
+
+  /**
+   * Exibe os botões para execução do filtro no Mobile
+   */
+  exibirBtnFiltro(){
+
+    let botoes = ``;
+  
+    if(coresCtrl.menuAbertoMobile === true|| tamanhoCtrl.menuAbertoMobile === true || precoCtrl.menuAbertoMobile === true){
+  
+      botoes = document.getElementById("btnFitroRodape");
+
+      try{
+        botoes.remove(botoes);
+      } catch (ex){
+        console.log(ex.message);
+      }
+
+      botoes = `
+      <div id="btnFitroRodape">      
+        <div id="btnAplicarFiltro">APLICAR</div>
+        <div id="btnLimparFiltro" onclick="limparFiltros()">LIMPAR</div>
+      </div>
+      `;
+      document
+      .getElementById("conteudoFaixaDePreco")
+      .innerHTML += botoes;
+  
+    } else {  
+        let btn = document.getElementById("btnFitroRodape");
+        try{
+          btn.remove(btn);
+        } catch (ex){
+          console.log(ex.message);
+        }
+        
+    }
+  
+  }
+
+
+
+} //EOC
+
+//Inicializando a View do SideBar
 export const sidebarCtrl = new SidebarController();
 
 export function exibirFiltrarMobile() {
@@ -164,18 +202,13 @@ export function fecharFiltroMobile() {
 
 // Reseta os filtros selecionados e exibi todos os produtos cadastrados
 export function limparFiltros() {
+  produtoCtrl.contador = 3;  
   fecharFiltroMobile();
 }
-
 
 /**
  * Função que permite a chamada pelo evento onclick
  */
 export function exibirOrdenarMobile() {
   sidebarCtrl.exibirOrdenarMobile();
-}
-
-
-export function ordenarPorData(){
-  
 }

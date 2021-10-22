@@ -1,15 +1,22 @@
---Instalação - Executando o servidor para evitar o Cors.
+-- Instalação - Executando o servidor para evitar o Cors.
 
-Open a terminal. (On Windows: cmd.exe.)
-Type npm and hit Enter to see if Node.js is installed.
-If you get command not found, download at https://nodejs.org/en/download/ and install. 1
-(On Ubuntu, you can try sudo apt install -y nodejs.)
-Install live-server: npm install live-server -g.
-Change directory to where your page lives: cd <path-to-index.html>.
-Start the server: live-server .
-(Should open localhost:8080 in your default browser and show the alert. See below.)
+Abra o terminal. (No Windows: cmd.exe.)
+Digite npm e tecle Enter para verificar se o Node.js está instalado.
+Se o comando retornar um not found, faça o download at https://nodejs.org/en/download/ e instale. 
+
+(No Ubuntu, você pode digitar sudo apt install -y nodejs.)
+Instale o live-server com: npm install live-server -g.
+
+Acesse o diretório Desenvolvedor-M3.
+
+Inicie o servidor com o comando: live-server .
+(Normalmente será iniciado em localhost:8080 no seu navegador padrão.)
 
 # Observações
 * O projeto foi desenvolvimento em HTML e Javscript
 
 * Cada produto foi cadastrado com 3 unidades no estoque.
+
+* A vitrine iniciará exibindo 3 produtos como padrão. Ao clicar em Carregar Mais
+os outros itens serão exibidos.
+

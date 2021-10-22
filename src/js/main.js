@@ -5,9 +5,9 @@ import VitrineController from '../app/vitrineComponent/vitrine.js';
 import RodapeController from '../app/rodapeComponent/rodape.js';
 
 let menu = new MenuController();
-let sidebar = new SidebarController();
-let vitrine = new VitrineController();
-let rodape= new RodapeController();
+//let sidebar = new SidebarController();
+//let vitrine = new VitrineController();
+//let rodape= new RodapeController();
 export default class Main{
     constructor( ){}
 }

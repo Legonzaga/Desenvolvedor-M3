@@ -11,3 +11,5 @@ export default class RodapeController {
     }
     
 }
+
+new RodapeController();
