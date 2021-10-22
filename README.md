@@ -2,7 +2,7 @@
 
 Abra o terminal. (No Windows: cmd.exe.)
 Digite npm e tecle Enter para verificar se o Node.js está instalado.
-Se o comando retornar um not found, faça o download at https://nodejs.org/en/download/ e instale. 
+Se o comando retornar um not found, faça o download aqui https://nodejs.org/en/download/ e instale. 
 
 (No Ubuntu, você pode digitar sudo apt install -y nodejs.)
 Instale o live-server com: npm install live-server -g.
