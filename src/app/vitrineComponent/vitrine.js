@@ -6,48 +6,48 @@ import { ordenacaoCtrl } from "../atributosComponent/ordenacao.js";
 import { produtoCtrl } from "../produtoComponent/produto.js";
 import { mensagemCtrl } from "../mensagemComponent/mensagem.js";
 export default class VitrineController {
-  listaProdutos = [];
-  produto;
-  sacola;
-  qtdProdutosTotal;
-  qtdProdutosExibindo;
-  vitrine;
+    listaProdutos = [];
+    produto;
+    sacola;
+    qtdProdutosTotal;
+    qtdProdutosExibindo;
+    vitrine;
 
-  constructor() {
+    constructor() {
 
-    this.vitrine = document.getElementById("vitrine");
+            this.vitrine = document.getElementById("vitrine");
 
-    this.sacola = new SacolaController(); // Instanciando o controlador da sacola
-    this.produto = new Produto(); // instanciando o controlador de produtos
-    this.qtdProdutosTotal = this.produto.listaProdutos;
-    this.listaProdutos = this.produto.listaProdutos;
+            this.sacola = new SacolaController(); // Instanciando o controlador da sacola
+            this.produto = new Produto(); // instanciando o controlador de produtos
+            this.qtdProdutosTotal = this.produto.listaProdutos;
+            this.listaProdutos = this.produto.listaProdutos;
 
-    produtoCtrl.exibindoNaVitrine = this.listaProdutos;
-    produtoCtrl.contador = produtoCtrl.exibindoNaVitrine.length;
+            produtoCtrl.exibindoNaVitrine = this.listaProdutos;
+            produtoCtrl.contador = produtoCtrl.exibindoNaVitrine.length;
 
-    produtoCtrl.novaListaProdutos = produtoCtrl.exibindoNaVitrine;
-    produtoCtrl.contador = 3; // Iniciando a vitrine exibindo 3 produtos
-  } // Fim do consttrutor
+            produtoCtrl.novaListaProdutos = produtoCtrl.exibindoNaVitrine;
+            produtoCtrl.contador = 3; // Iniciando a vitrine exibindo 3 produtos
+        } // Fim do consttrutor
 
 
-  /**
-   * Cria a View da Vitrine para exibir os produtos
-   * @param {*} listaProdutos
-   */
-  exibirProdutos(listaProdutos) {
-    //Se o somatório do contador de Produtos na Vitrine for maior que o
-    //array de produtos na memoris
-    if (produtoCtrl.contador > listaProdutos.length) {
-      produtoCtrl.contador = listaProdutos.length;
-    }
+    /**
+     * Cria a View da Vitrine para exibir os produtos
+     * @param {*} listaProdutos
+     */
+    exibirProdutos(listaProdutos) {
+        //Se o somatório do contador de Produtos na Vitrine for maior que o
+        //array de produtos na memoris
+        if (produtoCtrl.contador > listaProdutos.length) {
+            produtoCtrl.contador = listaProdutos.length;
+        }
 
-    this.vitrine.innerHTML = ordenacaoCtrl.exibirSelectOrdenacao();
+        this.vitrine.innerHTML = ordenacaoCtrl.exibirSelectOrdenacao();
 
-    let lista = ``;
+        let lista = ``;
 
-    //
-    for (var i = 0; i < produtoCtrl.contador; i++) {
-      lista += `<div class="produto">
+        //
+        for (var i = 0; i < produtoCtrl.contador; i++) {
+            lista += `<div class="produto">
                 <div class="foto grow"><img src=" ${
                   listaProdutos[i].urlImagem
                 }"></div>
@@ -59,34 +59,34 @@ export default class VitrineController {
                   listaProdutos[i].numeroParcelas
                 }x sem juros</div>`;
 
-      // Escondendo o botão de compra caso o item não tenha mais estoque
-      if (listaProdutos[i].quantidade !== 0) {
-        lista += `<div class="btnComprar swing" onclick="adicionarProdutoCarrinho(${listaProdutos[i].id})" id="${listaProdutos[i].id}"><p>Comprar</p></div>
+            // Escondendo o botão de compra caso o item não tenha mais estoque
+            if (listaProdutos[i].quantidade !== 0) {
+                lista += `<div class="btnComprar swing" onclick="adicionarProdutoCarrinho(${listaProdutos[i].id})" id="${listaProdutos[i].id}"><p>Comprar</p></div>
             </div>`;
-      } else {
-        lista += `<div style="text-align:center;" onclick="" id="${listaProdutos[i].id}"><p>ESGOTADO</p></div>
+            } else {
+                lista += `<div style="text-align:center;" onclick="" id="${listaProdutos[i].id}"><p>ESGOTADO</p></div>
             </div>`;
-      }
+            }
 
-    }
+        }
 
-    this.vitrine.innerHTML += lista;
+        this.vitrine.innerHTML += lista;
 
-    let btnCarregarMais = ``;
+        let btnCarregarMais = ``;
 
-    if (listaProdutos.length <= produtoCtrl.contador) {
-      btnCarregarMais = `
+        if (listaProdutos.length <= produtoCtrl.contador) {
+            btnCarregarMais = `
       <div id="divBtnCarregarMais" onclick="carregarMaisProdutos()">
         <div style="color:#000; font-weight:600;"><code>Listagem completa. Exibindo ${produtoCtrl.contador} produto(s).</h3></code>
       </div>`;
-    } else {
-      if (listaProdutos.length != 0) {
-        btnCarregarMais = `<div id="divBtnCarregarMais" onclick="carregarMaisProdutos()"><div id="btnCarregarMais">Carregar Mais</div></div>`;
-      }
+        } else {
+            if (listaProdutos.length != 0) {
+                btnCarregarMais = `<div id="divBtnCarregarMais" onclick="carregarMaisProdutos()"><div id="btnCarregarMais">Carregar Mais</div></div>`;
+            }
+        }
+
+        this.vitrine.innerHTML += btnCarregarMais;
     }
-    
-    this.vitrine.innerHTML += btnCarregarMais;
-  }
 
 } //EOC
 
@@ -106,12 +106,12 @@ vitrineCtrl.exibirProdutos(produtoCtrl.exibindoNaVitrine);
  * @param {*} produtos 
  */
 export function carregarVitrine(produtos) {
-  console.log(produtos);
-  vitrineCtrl.exibirProdutos(produtos);
+    console.log(produtos);
+    vitrineCtrl.exibirProdutos(produtos);
 }
 
 export function exibirFiltroProdutos() {
-  vitrineCtrl.exibirFiltroProdutos();
+    vitrineCtrl.exibirFiltroProdutos();
 }
 
 /**
@@ -119,22 +119,22 @@ export function exibirFiltroProdutos() {
  * @param {*} listaProdutos
  */
 export function carregarMaisProdutos() {
-  produtoCtrl.contador += 3; // Adicionando mais 3 produtos a vitrine
+    produtoCtrl.contador += 3; // Adicionando mais 3 produtos a vitrine
 
-  document.getElementById("divBtnCarregarMais");
+    document.getElementById("divBtnCarregarMais");
 
-  vitrineCtrl.exibirProdutos(produtoCtrl.novaListaProdutos);
+    vitrineCtrl.exibirProdutos(produtoCtrl.novaListaProdutos);
 }
 
 /** Adiciona um produto à sacola e atualiza na view*/
 export function adicionarProdutoCarrinho(produto) {
-  sacolaCtrl.adicionarNaSacola(produto);
-  let bag = document.getElementById("itensNaBolsa");
-  bag.innerHTML = sacolaCtrl.itensNaSacola.length;
-  document.getElementById("itensNaBolsa").style.animation = "grow";
-  document.getElementById("itensNaBolsa").style.animationDuration = "2s";
-  document.getElementById("bagIcon").style.animation = "grow";
-  document.getElementById("bagIcon").style.animationDuration = "2s";
+    sacolaCtrl.adicionarNaSacola(produto);
+    let bag = document.getElementById("itensNaBolsa");
+    bag.innerHTML = sacolaCtrl.itensNaSacola.length;
+    document.getElementById("itensNaBolsa").style.animation = "grow";
+    document.getElementById("itensNaBolsa").style.animationDuration = "2s";
+    document.getElementById("bagIcon").style.animation = "grow";
+    document.getElementById("bagIcon").style.animationDuration = "2s";
 }
 
 // Tornando o acesso niversal

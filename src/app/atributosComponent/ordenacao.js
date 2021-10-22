@@ -10,90 +10,107 @@ window.ordenarPorMaiorPrecoMob = ordenarPorMaiorPrecoMob;
  * Classe responsavel pela ordenação de produtos na vitrine
  */
 export default class Ordenacao {
-  constructor() {}
-  
-  /**
-   * 
-   * @returns Exibe o select ordenacao de ordenacao
-   */
-  exibirSelectOrdenacao() {
-    let selectOrdenacao = `    
+    constructor() {}
+
+    /**
+     * 
+     * @returns Exibe o select ordenacao de ordenacao
+     */
+    exibirSelectOrdenacao() {
+        let selectOrdenacao = `    
         <div id="selectOrdenacao" class="select">
-            <select name="Selectname" id="idSelectOrdenacao" onchange="ordenarPorMaiorPreco();">
-                <option id="ordenacaoOp" value="0">Ordenar por:</option>
-                <option value="1">Mais recentes</option>
-                <option value="2">Menor preço</option>
-                <option value="3">Maior preço</option>
-            </select>
+          <div class="menu-bar">
+            <ul>
+              <li>
+                <div id="opcaoOrdenacao1">
+                <a href="#" id="op1">Ordenar por</a>
+                </div>
+                <ul>
+                  <li onclick="ordenarPorMaiorPreco('1');">
+                    <a href="#" >Mais recentes</a>
+                  </li>
+                  <li onclick="ordenarPorMaiorPreco('2');">
+                    <a href="#">Meno preço</a>
+                  </li>
+                  <li onclick="ordenarPorMaiorPreco('3');">
+                    <a href="#">Maior preco</a>
+                  </li>                            
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
         <span id="ordem"></span>
         `;
-    return selectOrdenacao;
-  }
+        return selectOrdenacao;
+    }
 
-  ordenarPorData() {
-    produtoCtrl.exibindoNaVitrine = produtoCtrl.exibindoNaVitrine.sort(function compare(a, b) {
-      return b.dataCriacao - a.dataCriacao;
-    });    
+    ordenarPorData() {
+        produtoCtrl.exibindoNaVitrine = produtoCtrl.exibindoNaVitrine.sort(function compare(a, b) {
+            return b.dataCriacao - a.dataCriacao;
+        });
 
-    carregarVitrine(produtoCtrl.exibindoNaVitrine);
-  }
+        carregarVitrine(produtoCtrl.exibindoNaVitrine);
+    }
 
-  ordenarPorMenoPreco() {    
-    produtoCtrl.exibindoNaVitrine = produtoCtrl.exibindoNaVitrine.sort(
-      function compare(a, b) {
-        if (a.preco < b.preco) return -1;
-        if (a.preco > b.preco) return 1;
-        return 0;
-      }
-    );
-    carregarVitrine(produtoCtrl.exibindoNaVitrine);
-  }
+    ordenarPorMenoPreco() {
+        produtoCtrl.exibindoNaVitrine = produtoCtrl.exibindoNaVitrine.sort(
+            function compare(a, b) {
+                if (a.preco < b.preco) return -1;
+                if (a.preco > b.preco) return 1;
+                return 0;
+            }
+        );
+        carregarVitrine(produtoCtrl.exibindoNaVitrine);
+    }
 
-  ordenarPorMaiorPreco() {
-    produtoCtrl.exibindoNaVitrine = produtoCtrl.exibindoNaVitrine.sort(
-      function compare(a, b) {
-        if (a.preco > b.preco) return -1;
-        if (a.preco < b.preco) return 1;
-        return 0;
-      }
-    );
-    carregarVitrine(produtoCtrl.exibindoNaVitrine);
-  }
+    ordenarPorMaiorPreco() {
+        produtoCtrl.exibindoNaVitrine = produtoCtrl.exibindoNaVitrine.sort(
+            function compare(a, b) {
+                if (a.preco > b.preco) return -1;
+                if (a.preco < b.preco) return 1;
+                return 0;
+            }
+        );
+        carregarVitrine(produtoCtrl.exibindoNaVitrine);
+    }
 } //EOC
 
 
 export const ordenacaoCtrl = new Ordenacao();
 
-export function ordenarPorMaiorPreco() {
-  let select = document.getElementById("idSelectOrdenacao");
+export function ordenarPorMaiorPreco(opcao) {
+    let select = document.getElementById("idSelectOrdenacao");
 
-  var ordenacaoSelecionada = select.options[select.selectedIndex].value;
+    //var ordenacaoSelecionada = select.options[select.selectedIndex].value;
+    var ordenacaoSelecionada = opcao;
+    switch (ordenacaoSelecionada) {
+        case "1":
+            ordenacaoCtrl.ordenarPorData();
+            document.getElementById('opcaoOrdenacao1').innerHTML += ' <small>Mais recentes</small>';
+            break;
 
-  switch (ordenacaoSelecionada) {
-    case "1":
-      ordenacaoCtrl.ordenarPorData();
-      break;
+        case "2":
+            ordenacaoCtrl.ordenarPorMenoPreco();
+            document.getElementById('opcaoOrdenacao1').innerHTML += ' <small>Menor preço</small>';
+            break;
 
-    case "2":
-      ordenacaoCtrl.ordenarPorMenoPreco();
-      break;
-
-    case "3":
-      ordenacaoCtrl.ordenarPorMaiorPreco();
-      break;
-  }
+        case "3":
+            ordenacaoCtrl.ordenarPorMaiorPreco();
+            document.getElementById('opcaoOrdenacao1').innerHTML += ' <small>Maior preço</small>';
+            break;
+    }
 }
 
 
-export function ordenarPorDataMob(){
-  ordenacaoCtrl.ordenarPorData();
+export function ordenarPorDataMob() {
+    ordenacaoCtrl.ordenarPorData();
 }
 
-export function ordenarPorMenoPrecoMob(){
-  ordenacaoCtrl.ordenarPorMenoPreco();
+export function ordenarPorMenoPrecoMob() {
+    ordenacaoCtrl.ordenarPorMenoPreco();
 }
 
-export function ordenarPorMaiorPrecoMob(){
-  ordenacaoCtrl.ordenarPorMaiorPreco();
+export function ordenarPorMaiorPrecoMob() {
+    ordenacaoCtrl.ordenarPorMaiorPreco();
 }
