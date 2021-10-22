@@ -1,753 +1,266 @@
 /** version: 1.0 */
 
 * {
-  margin: 0px;
-  padding: 0px;
-  border: solid 0px red;
+    margin: 0px;
+    padding: 0px;
+    border: solid 0px red;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .wrap {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .flex-1 {
-  flex: 1;
+    flex: 1;
 }
 
 .nowrap {
-  flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 .column-nowrap {
-  flex-flow: column nowrap;
+    flex-flow: column nowrap;
 }
 
 .column {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .row-wrap {
-  flex-flow: row wrap;
+    flex-flow: row wrap;
 }
 
 .row {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 .space-aroud {
-  justify-content: space-around;
+    justify-content: space-around;
 }
 
 .space-between {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 
+
 /** Alinhamento vertical*/
+
 .flex-start {
-  align-self: flex-start;
+    align-self: flex-start;
 }
 
 .flex-center {
-  align-items: center;
+    align-items: center;
 }
 
 .flex-end {
-  align-self: flex-end;
+    align-self: flex-end;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 p {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 h1 {
-  margin-top: 40px;
-  font-size: 32pt;
-  font-weight: normal;
+    margin-top: 40px;
+    font-size: 32pt;
+    font-weight: normal;
 }
 
 h3 {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 16pt;
-  font-weight: normal;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 16pt;
+    font-weight: normal;
 }
 
 a:link {
-  color: #666666;
-  font-size: 10pt;
+    color: #666666;
+    font-size: 10pt;
 }
 
 a:hover {
-  color: #00c0ee;
-  font-size: 10pt;
+    color: #00c0ee;
+    font-size: 10pt;
 }
 
 a:visited {
-  color: #666666;
-  font-size: 10pt;
+    color: #666666;
+    font-size: 10pt;
 }
 
 #cabecalho {
-  width: 100%;
-  z-index: 10;
-  position: fixed;
-  top: 0px;
-  border-bottom: solid 2px #c7c7c7;
-  background-color: #ffffff;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    border-bottom: solid 2px #c7c7c7;
+    background-color: #ffffff;
 }
 
 #menu {
-  margin: 0 auto;
-  width: 1140px;
-  height: 64px;
-  background-color: #ffffff;
+    margin: 0 auto;
+    width: 1140px;
+    height: 64px;
+    background-color: #ffffff;
 }
 
 #menuContent {
-  padding-left: 135px;
-  padding-right: 135px;
+    padding-left: 135px;
+    padding-right: 135px;
 }
 
 #logo {
-  width: 135px;
-  height: auto;
-  position: relative;
-  top: 20px;
-  left: 0px;
-  background-image: url("../assets/logo-m3.png");
-  background-repeat: no-repeat;
-  cursor: pointer;
+    width: 135px;
+    height: auto;
+    position: relative;
+    top: 20px;
+    left: 0px;
+    background-image: url("../assets/logo-m3.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 #bagIcon {
-  position: relative;
-  top: -5px;
-  left: -15px;
-  width: 25px;
-  height: 25px;
-  background-image: url("../assets/bag.png");
-  background-repeat: no-repeat;
-  cursor: pointer;
-  z-index: 10;
+    position: relative;
+    top: -5px;
+    left: -15px;
+    width: 25px;
+    height: 25px;
+    background-image: url("../assets/bag.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 10;
 }
 
-#itensNaSacola{
-  display:block;
-  margin-top:15px;
-  padding:25px;
-  padding-top:0px;
-  border: solid 1px #666666;
+#itensNaSacola {
+    display: block;
+    margin-top: 15px;
+    padding: 25px;
+    padding-top: 0px;
+    border: solid 1px #666666;
+    z-index: 99;
 }
 
-#itensNaSacola > h3 {
-  border-bottom: solid 1px #c7c7c7;
+#itensNaSacola>h3 {
+    border-bottom: solid 1px #c7c7c7;
 }
 
 .linhaItemSacola {
-  display:inline-flex;  
-  width:100%;
-  margin-top: 10px;
-  border-bottom: solid 1px #f5f5f5;
-  text-align: left;
-  color:#666666;
-  font-size:10pt;
+    display: inline-flex;
+    width: 100%;
+    margin-top: 10px;
+    border-bottom: solid 1px #f5f5f5;
+    text-align: left;
+    color: #666666;
+    font-size: 10pt;
 }
-.linhaItemSacola > div:nth-child(1){
-  float:left;
+
+.linhaItemSacola>div:nth-child(1) {
+    float: left;
 }
 
 .btnClose {
-  cursor: pointer;
+    cursor: pointer;
 }
 
-.btnSuccess{
-  cursor: pointer;
-  padding:3px 8px;
-  background: #00c0ee;
-  color:#fff;
+.btnSuccess {
+    cursor: pointer;
+    padding: 3px 8px;
+    background: #00c0ee;
+    color: #fff;
 }
 
-.btnPrimary{
-  cursor: pointer;
-  padding:3px 8px;
-  background: #000;
-  color:#fff;
+.btnPrimary {
+    cursor: pointer;
+    padding: 3px 8px;
+    background: #000;
+    color: #fff;
 }
-
 
 #msgTop {
-  animation-name: popUpKeyFrame;
-  animation-duration: 2s;
-  z-index:40;
+    animation-name: popUpKeyFrame;
+    animation-duration: 2s;
+    z-index: 40;
 }
 
 #itensNaBolsa {
-  position: relative;
-  top: 25px;
-  left: 0px;
-  width: 19px;
-  height: 19px;
-  font-size: 0.75em;
-  font-weight: 600;
-  color: #fff;
-  background-color: #00c0ee;
-  border-radius: 96px;
-  z-index: 20;
-  text-align: center;
+    position: relative;
+    top: 25px;
+    left: 0px;
+    width: 19px;
+    height: 19px;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: #fff;
+    background-color: #00c0ee;
+    border-radius: 96px;
+    z-index: 20;
+    text-align: center;
 }
 
+
 /** PRODUTOS */
+
 .produto {
-  width: 195px;
-  height: 430px;
-  margin: 14px;
-  margin-bottom: 40px;
-  float: left;
-  animation-name: produtoKeyFrame;
-  animation-duration: 2s;
+    width: 195px;
+    height: 430px;
+    margin: 14px;
+    margin-bottom: 40px;
+    float: left;
+    animation-name: produtoKeyFrame;
+    animation-duration: 2s;
 }
 
 .foto {
-  width: 195px;
-  height: 295px;
-  float: left;
+    width: 195px;
+    height: 295px;
+    float: left;
 }
 
 .nomeProduto {
-  position: relative;
-  top: 0px;
-  float: left;
-  font-size: 11pt;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: normal;
-  width: 195px;
-  height: auto;
-}
-
-.preco {
-  float: left;
-  font-size: 16pt;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bolder;
-  letter-spacing: -1px;
-  width: 195px;
-  height: 36px;
-}
-
-.parcelamento {
-  float: left;
-  font-size: 12pt;
-  text-align: center;
-  letter-spacing: 0px;
-  width: 195px;
-  height: 36px;
-  font-family: "Open Sans";
-}
-
-.btnComprar {
-  width: 195px;
-  height: 42px;
-  background-color: #000000;
-  color: #ffffff;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: bold;
-  display: table-cell;
-  cursor: pointer;
-}
-
-.btnComprar:hover {
-  background-color: #00c0ee;
-}
-
-#cores {
-  font-weight: 600;
-}
-
-#faixaDePreco {
-  font-weight: 400;
-}
-
-
-#listaTamanho {
-  display: inline-block;
-  float: none;
-  width: 100%;
-}
-
-.itemTamanho {
-  position: relative;
-  top: 5px;
-  text-align: center;
-  float: left;
-  color: #c7c7c7;
-  border: solid 1px #c7c7c7;
-  width: 32px;
-  height: 32px;
-  margin: 4px;
-  font-size: 12pt;
-  cursor: pointer;
-}
-
-.itemTamanho :hover {
-  top: 0px;
-  width: 32px;
-  height: 32px;
-  border: solid 1px #e7f7fc;
-}
-
-.itemTamanho > div {
-  position: relative;
-  top: 5px;
-}
-
-.itemTamanhoSelecionado {
-  position: relative;
-  top: 5px;
-  text-align: center;
-  float: left;
-  color: #000000;
-  border: solid 1px #00c0ee;
-  width: 32px;
-  height: 32px;
-  margin: 4px;
-
-  cursor: pointer;
-}
-
-.itemTamanhoSelecionado > div {
-  position: relative;
-  top: 5px;
-}
-
-#divBtnCarregarMais {
-  float: left;
-  width: 100%;
-  height: auto;
-  text-align: center;
-}
-
-#btnCarregarMais {
-  display: inline-block;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #ffffff;
-  background-color: #00c0ee;
-  padding: 20px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  cursor: pointer;
-}
-
-#rodape {
-  float: left;
-  width: 100%;
-  height: 35px;
-  background-color: #000000;
-  text-align: center;
-  color: #ffffff;
-  font-size:0.8rem;
-}
-
-/* Criando o Checkbox */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 5px;
-  cursor: pointer;
-  font-size: 11pt;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* esconde o checbox padrão */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Cria um novo Checkbox */
-.checkmark {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  height: 15px;
-  width: 15px;
-  background-color: #eee;
-  border: solid 1px #7f7f7f;
-}
-
-/* On mouse-over, adiciona um background cinza */
-.container:hover input ~ .checkmark {
-  background-color: #fff;
-  border: solid 1px #7f7f7f;
-}
-
-/* Quando o checkbox está marcado, adiciona um bg azul */
-.container input:checked ~ .checkmark {
-  border: solid 1px #7f7f7f;
-}
-
-/* Cria o checkmar/indicator (esconde quando não está marcado*/
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Mostra o checkmar quando selecionado */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Estiliza o checkmark/indicator */
-.container .checkmark:after {
-  left: 3px;
-  top: 3px;
-  width: 9px;
-  height: 9px;
-  background-color: #00c0ee;
-  border-width: 1 3px 3px 0;
-}
-
-/** Cria o estilo do select */
-
-
-#selectOrdenacao {
-  width: 100%;
-  text-align: right;
-  margin-top: 40px;
-  border:none;
-}
-
-
-.select {
-  appearance: none;
-  background-color: #fff;
-  padding: 3px;
-  margin: 0;
-  width: 155px;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;  
-  
-}
-
-
-#idSelectOrdenacao{
-  border:solid 1px #666;
-  padding:8px;
-}
-
-#idSelectOrdenacao > option:nth-child(1){
-  background-color: #c7c7c7;
-  color:#fff;
-}
-
-
-#idSelectOrdenacao > option:nth-child(2):hover{
-  background: #00c0ee !important;
-}
-
-/*
-#selectOrdenacao #idslectOrdenacao .ordenacaoOp:hover {
-  background: #00c0ee !important;
-}
-
-/**
-select:focus,
-select:active,
-select:focus {
-  transition: 1s;
-  color: inherit;
-  font-weight: bold;  
-}
-
-
-select :hover {
-  color: #00c0ee;
-}
-
-
-option[value=""][disabled] {
-  display: none;
-}]
-*/
-
-#idMensagem {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  display: flex;
-  margin: 0px auto;
-  background-color: #000;
-  opacity: 0.95;
-}
-
-#formaMensagem {
-  width: 280px;
-  height: 280px;
-  display: table;
-  text-align: center;
-  border: solid 1px #000;
-  border-radius: 1000px;
-  color: #000000;
-  background: #fff;
-  animation-name: mensagemKeyFrame;
-  animation-duration: 0.2s;
-}
-
-#idMensagemConteudo {
-  width: 250px;
-  text-transform: capitalize;
-  vertical-align: middle;
-  display: table-cell;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-#btnFecharMensagem {
-  color: #fff;
-  margin-top: 30px;
-}
-
-#btnFecharMensagem > span {
-  font-size: 0.8em;
-  font-weight: 900;
-  padding: 5px;
-  background-color: #000;
-  border-radius: 5px;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-#cores {
-  visibility: visible;
-}
-
-/** ###########################*/
-/** Itens escondidos no Desktop*/
-/** ###########################*/
-#btnMobExibirCores {
-  display: none;
-  visibility: hidden;
-  display: none;
-}
-#btnMobEsconderCores {
-  display: none;
-  visibility: hidden;
-}
-
-#btnMobExibirTamanho {
-  display: none;
-  visibility: hidden;
-}
-
-#btnMobEsconderTamanho {
-  display: none;
-  visibility: hidden;
-}
-
-#cabecalhoFiltroTamanho {
-  display: block;
-}
-
-.conteudoFaixaDePreco {
-  display: block;
-}
-
-#btnMobExibirPrecoMob {
-  display: none;
-}
-
-#btnMobEsconderPrecoMob {
-  display: none;
-}
-
-/** ###########################*/
-/** Desktop */
-/** ###########################*/
-@media (min-width: 960px) {
-  #sessao {
-    margin: 0 auto;
-    margin-top: 65px;
-    width: 1140px;
-    min-height: 100vh;
-  }
-
-  #conteudo {
-    height: auto;
-    display: inline-block;
-    margin-left: 135px;
-    z-index: 0;
-  }
-
-  #sidebar {
-    left: 135px;
-    float: left;
-    width: 195px;
-    min-height: 100vh;
-    z-index: 0;
-  }
-
-  #vitrine {
-    float: left;
-    width: 675px;
-    min-height: auto;
-    z-index: 0;
-  }
-
-  #filtroMobile {
-    display: none;
-  }
-} /** EOF min-width 640px - Desktop*/
-
-/** ###########################*/
-/** Mobile */
-/** ###########################*/
-@media (max-width: 720px) {
-  #menu {
-    margin: 0 auto;
-    min-width: 320px;
-    height: 64px;
-    background-color: #ffffff;
-  }
-
-  #menuContent {
-    width: 100vw;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
-  #cabecalho {
-    position: fixed;
+    position: relative;
     top: 0px;
-    left: 0px;
-  }
-
-  #sessao {
-    margin: 0 auto;
-    width: 100vw;
-    height: auto;
-  }
-
-  #conteudo {
-    margin: 0 auto;
-    width: 100vw;
-    height: auto;
-  }
-
-  #logo {
-    left: 10px;
-    width: 135px;
-    height: 36px;
-  }
-
-  #bagIcon {
-    top: 2px;
-    left: -25px;
-  }
-
-  #itensNaBolsa {
-    top: 35px;
-    left: -10px;
-  }
-
-  #sidebar {
-    position: relative;
-    display: wrap;
-    top: 48px;
-    left: 0px;
-    width: 100vw;
-    height: auto;
-    text-align: center;
-  }
-
-  #vitrine {
-    max-width: 100vw;
-    height: auto;
-  }
-
-  .produto {
-    width: 10em;
-    height: auto;
-    margin: 0.5em;
-    margin-bottom: 2em;
     float: left;
-  }
-
-  .foto {
-    width: 10em;
-    height: auto;
-    float: left;
-  }
-
-  .foto > img {
-    width: 10em;
-    height: auto;
-    float: left;
-  }
-
-  .nomeProduto {
-    position: relative;
-    top: 6px;
-    float: left;
-    font-size: 9pt;
+    font-size: 11pt;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 600;
-    width: 100%;
-    height: 36px;
-  }
+    font-weight: normal;
+    width: 195px;
+    height: auto;
+}
 
-  .preco {
-    font-size: 1em;
+.preco {
+    float: left;
+    font-size: 16pt;
     text-transform: uppercase;
     text-align: center;
-    font-weight: 900;
+    font-weight: bolder;
     letter-spacing: -1px;
-    width: 100%;
-    height: auto;
-    color: #000;
-  }
+    width: 195px;
+    height: 36px;
+}
 
-  .parcelamento {
+.parcelamento {
     float: left;
-    font-size: 10pt;
+    font-size: 12pt;
     text-align: center;
     letter-spacing: 0px;
-    width: 100%;
-    height: auto;
+    width: 195px;
+    height: 36px;
     font-family: "Open Sans";
-  }
+}
 
-  .btnComprar {
+.btnComprar {
     width: 195px;
     height: 42px;
     background-color: #000000;
@@ -758,352 +271,865 @@ option[value=""][disabled] {
     font-weight: bold;
     display: table-cell;
     cursor: pointer;
-  }
+}
 
-  #listaCores {
-    display: none;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+.btnComprar:hover {
+    background-color: #00c0ee;
+}
 
-  #cores {
-    padding-left: 20px;
-  }
+#cores {
+    font-weight: 600;
+}
 
-  /** ####################*/
-  /** Escondidos no mobile*/
-  #listaTamanho {
-    display: none;
-  }
-  #sidebar > div > h3 {
-    display: none;
-  }
-  #faixaDePreco {
-    display: none;
-    padding-left: 25px;
-    text-align: left !important;
-    zoom: 1;
-  }
-  #faixaDePreco > div {
-    display: none;
-  }
-  #idSelectOrdenacao {
-    display: none;
-  }
-
-  #filtroMobile {
-    position: relative;
-    margin: 30px 0px 80px 0px;
-  }
-
-  #linkFitroMobile {
-    color: #666666;
-    border: solid 1px #666666;
-    padding: 15px 10vw;
-    cursor: pointer;
-  }
-
-  #linkOrdenarMobile {
-    color: #666666;
-    border: solid 1px #666666;
-    border-left: none;
-    padding: 15px 10vw;
-    cursor: pointer;
-  }
-
-  .txtCabecalho {
-    align-self: center;
-
-    font-size: 1.1em;
-    letter-spacing: 1px;
-    padding-left: 30px;
-    color: #666666;
+#faixaDePreco {
     font-weight: 400;
-  }
+}
 
-  #menuFiltroMobile {
-    position: absolute;
-    top: -90px;
-    left: 0px;
-    width: 100vw;
-    min-height: 1080px !important;
-    z-index: 20;
-    background-color: #ffffff;
-  }
+#listaTamanho {
+    display: inline-block;
+    float: none;
+    width: 100%;
+}
 
-  #btnMobExibirCores {
-    visibility: "visible";
-  }
-  #btnMobExibirCores > h3 {
-    font-weight: 900;
-    font-size: 2em;
-  }
+.itemTamanho {
+    position: relative;
+    top: 5px;
+    text-align: center;
+    float: left;
+    color: #c7c7c7;
+    border: solid 1px #c7c7c7;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    font-size: 12pt;
+    cursor: pointer;
+}
+
+.itemTamanho :hover {
+    top: 0px;
+    width: 32px;
+    height: 32px;
+    border: solid 1px #e7f7fc;
+}
+
+.itemTamanho>div {
+    position: relative;
+    top: 5px;
+}
+
+.itemTamanhoSelecionado {
+    position: relative;
+    top: 5px;
+    text-align: center;
+    float: left;
+    color: #000000;
+    border: solid 1px #00c0ee;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.itemTamanhoSelecionado>div {
+    position: relative;
+    top: 5px;
+}
+
+#divBtnCarregarMais {
+    float: left;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#btnCarregarMais {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #00c0ee;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+#rodape {
+    float: left;
+    width: 100%;
+    height: 35px;
+    background-color: #000000;
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.8rem;
+}
 
 
-  /** Controle de Checkboxes*/
 /* Criando o Checkbox */
+
 .container {
-  padding-top:20px;  
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 11pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* esconde o checbox padrão */
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
 
 /* Cria um novo Checkbox */
+
 .checkmark {
-  top: 22px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border: solid 1px #7f7f7f;
 }
 
-  /** Controle dos botões do Filtro Mobile */
-  #btnMobExibirCores {
-    display: flex;
-    visibility: visible;
-  }
-  #btnMobEsconderCores {
-    visibility: hidden;
-  }
-  #cores {
+
+/* On mouse-over, adiciona um background cinza */
+
+.container:hover input~.checkmark {
+    background-color: #fff;
+    border: solid 1px #7f7f7f;
+}
+
+
+/* Quando o checkbox está marcado, adiciona um bg azul */
+
+.container input:checked~.checkmark {
+    border: solid 1px #7f7f7f;
+}
+
+
+/* Cria o checkmar/indicator (esconde quando não está marcado*/
+
+.checkmark:after {
+    content: "";
+    position: absolute;
     display: none;
-    visibility: hidden;
-  }
-  #btnAlternarExibicaoCores {
-    display: none;
-  }
+}
 
-  /** Filtro por tamnho mobile*/
-  #cabecalhoFiltroTamanho {
-    display: none;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
 
-  #cabecalhoFiltroTamanho > h3 {
-    font-weight: 900;
-  }
+/* Mostra o checkmar quando selecionado */
 
-  #listaTamanho {
-    padding-left: 30px;
-    padding-right: 30px;
-    display: none;
-  }
+.container input:checked~.checkmark:after {
+    display: block;
+}
 
-  #btnMobExibirTamanho {
-    display: flex;
-    visibility: visible;
-    font-size: 2em;
-    font-weight: 900;
-    text-align: right;
-  }
 
-  #btnMobEsconderTamanho {
-    display: none;
-    visibility: hidden;
-  }
+/* Estiliza o checkmark/indicator */
 
-  .btnAdd {
-    font-weight: 900;
-    font-size: 1em;
-  }
-
-  .itemTamanho {
-    zoom: 1.5;
-  }
-
-  .itemTamanhoSelecionado {
-    zoom: 1.5;
-  }
-
-  #conteudoFaixaDePreco {
-    display: none;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  #btnMobExibirPrecoMob {
-    display: flex;
-  }
-
-  #btnMobEsconderPrecoMob {
-    display: none;
-  }
-
-  #btnFitroRodape {
-    display: inline-flex;
-    margin-top: 40px;
-  }
-
-  #btnAplicarFiltro {
+.container .checkmark:after {
+    left: 3px;
+    top: 3px;
+    width: 9px;
+    height: 9px;
     background-color: #00c0ee;
+    border-width: 1 3px 3px 0;
+}
+
+
+/** Cria o estilo do select */
+
+#selectOrdenacao {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    left: 0px;
+    float: left;
+    margin-top: 40px;
+    border: none;
+    z-index: 40;
+}
+
+
+/** Manipulando o select */
+
+div.menu-bar ul ul {
+    display: none;
+    list-style-type: none;
+    z-index: 20;
+    position: absolute;
+}
+
+div.menu-bar ul ul li {
+    border: solid 1px #c7c7c7;
+}
+
+div.menu-bar li:hover>ul {
+    display: block;
+}
+
+#selectOrdenacao>div>ul>li {
+    list-style-type: none;
+}
+
+#selectOrdenacao {
+    display: flex;
+    justify-content: end;
+}
+
+
+/* Configura a cx de texto do cabecalho do select */
+
+#selectOrdenacao>div {
+    min-width: 135px;
+    border: solid 1px #666;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#opcaoOrdenacao1 {
+    width: 100%;
+    list-style-type: none;
+    z-index: 40;
+}
+
+#opcaoOrdenacao1>a {
+    text-decoration: none;
+    font-size: 1em;
+}
+
+#selectOrdenacao>div>ul>li>ul>li:nth-child(n)>a {
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+#selectOrdenacao>div>ul>li>ul {
+    background: #ffffff;
+    position: absolute;
+    width: auto;
+    min-width: 145px;
+}
+
+#selectOrdenacao>div>ul>li>ul>li:nth-child(n):hover {
     color: #fff;
-    letter-spacing: 2px;
-    padding: 10px 30px;
-    justify-content: center;
-    margin-right: 10px;
-  }
+    background-color: #00c0ee;
+}
 
-  #btnLimparFiltro {
+#selectOrdenacao>div>ul>li>ul>li:nth-child(n)>a:link {
     color: #666666;
-    border: solid 1px #666666;
-    letter-spacing: 2px;
-    padding: 10px 30px;
+}
+
+#selectOrdenacao>div>ul>li>ul>li:nth-child(n)>a:hover {
+    color: #fff;
+}
+
+
+/** Fim da manipulação do select */
+
+#idMensagem {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100%;
+    display: flex;
     justify-content: center;
-    margin-left: 10px;
-  }
+    align-items: center;
+    z-index: 10;
+    display: flex;
+    margin: 0px auto;
+    background-color: #000;
+    opacity: 0.95;
+}
 
-  /** Ordenar Mobile*/
-  #opcoesOrdenar {
-    text-align: left;
-    padding-left: 30px;
-  }
+#formaMensagem {
+    width: 280px;
+    height: 280px;
+    display: table;
+    text-align: center;
+    border: solid 1px #000;
+    border-radius: 1000px;
+    color: #000000;
+    background: #fff;
+    animation-name: mensagemKeyFrame;
+    animation-duration: 0.2s;
+}
 
-  #opcoesOrdenar > div {
-    padding-top: 50px;
-  }
-} /** EOF max-width 640px - Mobile */
+#idMensagemConteudo {
+    width: 250px;
+    text-transform: capitalize;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+#btnFecharMensagem {
+    color: #fff;
+    margin-top: 30px;
+}
+
+#btnFecharMensagem>span {
+    font-size: 0.8em;
+    font-weight: 900;
+    padding: 5px;
+    background-color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#cores {
+    visibility: visible;
+}
+
+
+/** ###########################*/
+
+
+/** Itens escondidos no Desktop*/
+
+
+/** ###########################*/
+
+#btnMobExibirCores {
+    display: none;
+    visibility: hidden;
+    display: none;
+}
+
+#btnMobEsconderCores {
+    display: none;
+    visibility: hidden;
+}
+
+#btnMobExibirTamanho {
+    display: none;
+    visibility: hidden;
+}
+
+#btnMobEsconderTamanho {
+    display: none;
+    visibility: hidden;
+}
+
+#cabecalhoFiltroTamanho {
+    display: block;
+}
+
+.conteudoFaixaDePreco {
+    display: block;
+}
+
+#btnMobExibirPrecoMob {
+    display: none;
+}
+
+#btnMobEsconderPrecoMob {
+    display: none;
+}
+
+
+/** ###########################*/
+
+
+/** Desktop */
+
+
+/** ###########################*/
+
+@media (min-width: 768px) {
+    #sessao {
+        margin: 0 auto;
+        margin-top: 65px;
+        width: 1140px;
+        min-height: 100vh;
+    }
+    #conteudo {
+        height: auto;
+        display: inline-block;
+        margin-left: 135px;
+        z-index: 0;
+    }
+    #sidebar {
+        left: 135px;
+        float: left;
+        width: 195px;
+        min-height: 100vh;
+        z-index: 0;
+    }
+    #vitrine {
+        float: left;
+        width: 675px;
+        min-height: auto;
+        z-index: 0;
+    }
+    #filtroMobile {
+        display: none;
+    }
+}
+
+
+/** EOF min-width 768px - Desktop*/
+
+
+/** ###########################*/
+
+
+/** Mobile */
+
+
+/** ###########################*/
+
+@media (max-width: 768px) {
+    #menu {
+        margin: 0 auto;
+        min-width: 320px;
+        height: 64px;
+        background-color: #ffffff;
+    }
+    #menuContent {
+        width: 100vw;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    #cabecalho {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+    }
+    #sessao {
+        margin: 0 auto;
+        width: 100vw;
+        height: auto;
+    }
+    #conteudo {
+        margin: 0 auto;
+        width: 100vw;
+        height: 100vh;
+    }
+    #logo {
+        left: 10px;
+        width: 135px;
+        height: 36px;
+    }
+    #bagIcon {
+        top: 2px;
+        left: -25px;
+    }
+    #itensNaBolsa {
+        top: 35px;
+        left: -10px;
+    }
+    #sidebar {
+        position: relative;
+        display: wrap;
+        top: 48px;
+        left: 0px;
+        width: 100vw;
+        height: auto;
+        text-align: center;
+    }
+    #vitrine {
+        max-width: 100vw;
+        height: auto;
+    }
+    .produto {
+        width: 10em;
+        height: auto;
+        margin: 0.5em;
+        margin-bottom: 2em;
+        float: left;
+    }
+    .foto {
+        width: 10em;
+        height: auto;
+        float: left;
+    }
+    .foto>img {
+        width: 10em;
+        height: auto;
+        float: left;
+    }
+    .nomeProduto {
+        position: relative;
+        top: 6px;
+        float: left;
+        font-size: 9pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        width: 100%;
+        height: 36px;
+    }
+    .preco {
+        font-size: 1em;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 900;
+        letter-spacing: -1px;
+        width: 100%;
+        height: auto;
+        color: #000;
+    }
+    .parcelamento {
+        float: left;
+        font-size: 10pt;
+        text-align: center;
+        letter-spacing: 0px;
+        width: 100%;
+        height: auto;
+        font-family: "Open Sans";
+    }
+    .btnComprar {
+        width: 195px;
+        height: 42px;
+        background-color: #000000;
+        color: #ffffff;
+        text-transform: uppercase;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        display: table-cell;
+        cursor: pointer;
+    }
+    #listaCores {
+        display: none;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #cores {
+        padding-left: 20px;
+    }
+    /** ####################*/
+    /** Escondidos no mobile*/
+    div.menu-bar {
+        display: none;
+    }
+    #listaTamanho {
+        display: none;
+    }
+    #sidebar>div>h3 {
+        display: none;
+    }
+    #faixaDePreco {
+        display: none;
+        padding-left: 25px;
+        text-align: left !important;
+        zoom: 1;
+    }
+    #faixaDePreco>div {
+        display: none;
+    }
+    #idSelectOrdenacao {
+        display: none;
+    }
+    #filtroMobile {
+        position: relative;
+        margin: 30px 0px 80px 0px;
+    }
+    #linkFitroMobile {
+        color: #666666;
+        border: solid 1px #666666;
+        padding: 15px 10vw;
+        cursor: pointer;
+    }
+    #linkOrdenarMobile {
+        color: #666666;
+        border: solid 1px #666666;
+        border-left: none;
+        padding: 15px 10vw;
+        cursor: pointer;
+    }
+    .txtCabecalho {
+        align-self: center;
+        font-size: 1.1em;
+        letter-spacing: 1px;
+        padding-left: 30px;
+        color: #666666;
+        font-weight: 400;
+    }
+    #menuFiltroMobile {
+        position: absolute;
+        top: -90px;
+        left: 0px;
+        width: 100vw;
+        min-height: 1080px !important;
+        z-index: 20;
+        background-color: #ffffff;
+    }
+    #btnMobExibirCores {
+        visibility: "visible";
+    }
+    #btnMobExibirCores>h3 {
+        font-weight: 900;
+        font-size: 2em;
+    }
+    /** Controle de Checkboxes*/
+    /* Criando o Checkbox */
+    .container {
+        padding-top: 20px;
+    }
+    /* Cria um novo Checkbox */
+    .checkmark {
+        top: 22px;
+    }
+    /** Controle dos botões do Filtro Mobile */
+    #btnMobExibirCores {
+        display: flex;
+        visibility: visible;
+    }
+    #btnMobEsconderCores {
+        visibility: hidden;
+    }
+    #cores {
+        display: none;
+        visibility: hidden;
+    }
+    #btnAlternarExibicaoCores {
+        display: none;
+    }
+    /** Filtro por tamnho mobile*/
+    #cabecalhoFiltroTamanho {
+        display: none;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #cabecalhoFiltroTamanho>h3 {
+        font-weight: 900;
+    }
+    #listaTamanho {
+        padding-left: 30px;
+        padding-right: 30px;
+        display: none;
+    }
+    #btnMobExibirTamanho {
+        display: flex;
+        visibility: visible;
+        font-size: 2em;
+        font-weight: 900;
+        text-align: right;
+    }
+    #btnMobEsconderTamanho {
+        display: none;
+        visibility: hidden;
+    }
+    .btnAdd {
+        font-weight: 900;
+        font-size: 1em;
+    }
+    .itemTamanho {
+        zoom: 1.5;
+    }
+    .itemTamanhoSelecionado {
+        zoom: 1.5;
+    }
+    #conteudoFaixaDePreco {
+        display: none;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    #btnMobExibirPrecoMob {
+        display: flex;
+    }
+    #btnMobEsconderPrecoMob {
+        display: none;
+    }
+    #btnFitroRodape {
+        display: inline-flex;
+        margin-top: 40px;
+    }
+    #btnAplicarFiltro {
+        background-color: #00c0ee;
+        color: #fff;
+        letter-spacing: 2px;
+        padding: 10px 30px;
+        justify-content: center;
+        margin-right: 10px;
+    }
+    #btnLimparFiltro {
+        color: #666666;
+        border: solid 1px #666666;
+        letter-spacing: 2px;
+        padding: 10px 30px;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    /** Ordenar Mobile*/
+    #opcoesOrdenar {
+        text-align: left;
+        padding-left: 30px;
+    }
+    #opcoesOrdenar>div {
+        padding-top: 50px;
+    }
+}
+
+
+/** EOF max-width 640px - Mobile */
+
 
 /** ANIMAÇÕES */
 
 .grow:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  animation-name: produtoKeyFrame;
-  animation-duration: 1s;
-}
-
-.rotate:hover {
-  -webkit-transform: rotateZ(-30deg);
-  -ms-transform: rotateZ(-30deg);
-  transform: rotateZ(-30deg);
-}
-
-.swing:hover {
-  -webkit-animation: swing 1s ease;
-  animation: swing 1s ease;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-
-@keyframes grow {
-  from {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
-  }
-  to {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
+    animation-name: produtoKeyFrame;
+    animation-duration: 1s;
+}
+
+.rotate:hover {
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+}
+
+.swing:hover {
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+@keyframes grow {
+    from {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    to {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
 }
 
 @keyframes mensagemKeyFrame {
-  from {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-    font-size: 0em;
-  }
-  to {
-    width: 250px;
-    height: 250px;
-    opacity: 1;
-    font-size: 1.2em;
-  }
+    from {
+        width: 0px;
+        height: 0px;
+        opacity: 0;
+        font-size: 0em;
+    }
+    to {
+        width: 250px;
+        height: 250px;
+        opacity: 1;
+        font-size: 1.2em;
+    }
 }
 
 @keyframes popUpKeyFrame {
-  from {
-    position: relative;
-    top: 0px;
-    opacity: 0;
-    bottom: -50px;
-  }
-  to {
-    position: relative;
-    top: 0px;
-    bottom: 0px;
-    opacity: 1;
-  }
+    from {
+        position: relative;
+        top: 0px;
+        opacity: 0;
+        bottom: -50px;
+    }
+    to {
+        position: relative;
+        top: 0px;
+        bottom: 0px;
+        opacity: 1;
+    }
 }
 
 @keyframes produtoKeyFrame {
-  from {
-    opacity: 0;
-    position: relative;
-    float: left;
-    top: -50px;
-    left: 0px;
-  }
-  to {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    floar: left;
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+        position: relative;
+        float: left;
+        top: -50px;
+        left: 0px;
+    }
+    to {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        floar: left;
+        opacity: 1;
+    }
 }
 
 @keyframes loading {
-  from {
-    transform: rotate(45deg);
-    transform: scaleY(5);
-    transform: scaleX(1.2);
-  }
-  to {
-    transform: scaleY(1);
-    transform: scaleX(1);
-    transform: rotate(0deg);
-  }
+    from {
+        transform: rotate(45deg);
+        transform: scaleY(5);
+        transform: scaleX(1.2);
+    }
+    to {
+        transform: scaleY(1);
+        transform: scaleX(1);
+        transform: rotate(0deg);
+    }
 }
 
 @-webkit-keyframes swing {
-  15% {
-    -webkit-transform: translateX(5px);
-    transform: translateX(5px);
-  }
-  30% {
-    -webkit-transform: translateX(-5px);
-    transform: translateX(-5px);
-  }
-  50% {
-    -webkit-transform: translateX(3px);
-    transform: translateX(3px);
-  }
-  65% {
-    -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
-  }
-  80% {
-    -webkit-transform: translateX(2px);
-    transform: translateX(2px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
+    15% {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65% {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80% {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
 }
+
 @keyframes swing {
-  15% {
-    -webkit-transform: translateX(5px);
-    transform: translateX(5px);
-  }
-  30% {
-    -webkit-transform: translateX(-5px);
-    transform: translateX(-5px);
-  }
-  50% {
-    -webkit-transform: translateX(3px);
-    transform: translateX(3px);
-  }
-  65% {
-    -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
-  }
-  80% {
-    -webkit-transform: translateX(2px);
-    transform: translateX(2px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
+    15% {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65% {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80% {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
 }
