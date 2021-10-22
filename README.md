@@ -3,6 +3,8 @@ Este projeto é uma etapa do pocesso seletivo para Desenvolvedor na M3Commerce.
 Consiste em desenvolver um layout de uma loja virtual que seja responsivo, utilizando HTML5, CSS3 e Javascript. 
 O layout está de acordo com os arquivos fonecidos dentro do diretório Desenvolvedor-M3/Layout.
 
+# Meu e-mail: leanvasconcellos@gmail.com
+
 # Tecnologias
     - HTML5
     - CSS3
