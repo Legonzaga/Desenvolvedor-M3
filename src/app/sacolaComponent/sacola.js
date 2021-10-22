@@ -71,7 +71,7 @@ export default class SacolaController {
       </div>
       <div class="linhaItemSacola flex space-between">
         <div class="flex"></div>
-        <div class="btnSuccess">CONCLUIR</div>
+        <div class="btnSuccess">FINALIZAR COMPRA</div>
         <div class="btnPrimary" onclick="fecharSacola()"><p>Fechar</p></div>
       </div>          
     </div>`;
